@@ -1,6 +1,111 @@
 :root {
     --madi-gray: #666;
+    --madi-pink: #FFD7E0;
 }
+
+
+#madimadica-navbar {
+    background-color: var(--madi-pink);
+    & .splitter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    & .home-link {
+        line-height: 30px;
+        margin-right: 16px;
+        padding: 10px 0px;
+        box-sizing: border-box;
+        & img {
+            height: 1.5em;
+        }
+    }
+    & .other-links-wide {
+        display: flex;
+        justify-content: end;
+        flex-basis: 0;
+        flex-grow: 1;
+        font-size: 18px;
+        text-align: start;
+        margin-right: 24px;
+        gap: 24px;
+        line-height: 24px;
+        color: black;
+        & .other-link a {
+            color: #222;
+            &:hover {
+                background-color: white;
+            }
+            border: 2px solid white;
+            border-radius: 10px;
+            padding: 5px 10px;
+            text-decoration: none;
+            text-decoration-line: none;
+        }
+    }
+    & #other-links-narrow {
+        margin-right: 24px;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        &.show {
+            ul {
+                display: block;
+            }
+            #other-links-down {
+                display: none;
+            }
+            #other-links-up {
+                display: initial;
+            }
+        }
+        #other-links-up {
+            display: none;
+        }
+        cursor: pointer;
+        /* hover show dropdown
+        &:hover, ul:hover {
+            ul {
+                display: block;
+            }
+        } */
+        ul {
+            display: none;
+            list-style-type: none;
+            position: absolute;
+            z-index: 1;
+            right: 0;
+            top: 35px;
+            padding: 0;
+            padding-top:15px;
+            a {
+                text-decoration: none;
+                color: black;
+                &:hover {
+                    color: #999;
+                }
+            }
+            li {
+                padding: 5px 15px;
+                border-top: white 1px solid;
+            }
+            background-color: var(--madi-pink);
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    #madimadica-navbar .other-links-wide {
+        display: none;
+    }
+}
+@media (min-width: 601px) {
+    #madimadica-navbar #other-links-narrow {
+        display: none;
+    }
+}
+
 
 .prev-link, .next-link {
     font-size: 2em;
@@ -39,3 +144,7 @@
         min-width: 0;
     }
 }
+
+
+
+
