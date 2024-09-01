@@ -1,0 +1,41 @@
+:root {
+    --madi-gray: #666;
+}
+
+.prev-link, .next-link {
+    font-size: 2em;
+    color: var(--madi-gray);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prev-link {
+    left: 15px;
+}
+.next-link {
+    right: 15px;
+}
+
+/* > 665 */
+@media (min-width: 666px) {
+    .prev-link, .next-link {
+        top: 0;
+        bottom: 0;
+        margin: 0;
+        max-width: 150px;
+        min-width: 50px;
+
+    }
+}
+/* <= 665 */
+@media (max-width: 665px) {
+    .prev-link, .next-link {
+        bottom: 15px;
+        width: auto;
+        margin: 0;
+        max-width: none;
+        min-width: 0;
+    }
+}
