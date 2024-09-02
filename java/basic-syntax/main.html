@@ -74,7 +74,66 @@
     </nav>
 
     <main class="container">
-      <h1>2.2 - Java Program Entry Point (<code>main</code>)</h1>
+      <h1 id="java-program-entry-point">
+        2.2 - Java Program Entry Point (<code>main</code>)
+      </h1>
+      <p>
+        In order for a Java program to be <em>executable</em>, it must have a
+        main method. We have already seen this a few times. It looks like:
+      </p>
+      <pre
+        class="bordered"
+      ><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+   
+}</code></pre>
+      <p>
+        Excluding whitespace, and a few exceptions related to
+        <code>String[] args</code>, main must be written <em>exactly</em> as
+        above. By the middle of the book we will understand what each part of it
+        means, but until then we can just ignore it.
+      </p>
+      <p>
+        The only thing we need to know, and remember for the rest of time, is
+        that <code>public static void main(String[] args)</code> is
+        <em>where</em> the program <em>starts</em>. IntelliJ makes it easy to
+        click the green play-button on the left gutter to run it. A program can
+        have multiple main methods, but only one per file. There is usually only
+        1 main method per program. Some programs have 0 main methods, but that
+        is generally for a library, such as the built-in Java API (things like
+        <code>System.out.println()</code>). For the vast majority of our
+        programs, we will have a main method.
+      </p>
+      <h2 id="useful-shortcuts">Useful Shortcuts</h2>
+      <p>
+        You do not need to worry about trying to memorize the main method. You
+        will see it so much while learning to code that it will be ingrained in
+        your brain. While typing it all out helps to remember it, it becomes a
+        chore once you know it. Fortunately, IntelliJ provides a shortcut
+        out-of-the-box to create a main method. Inside the class curly braces,
+        type <code>main</code> and press <code>TAB</code>. This will generate
+        the boilerplate for you.
+      </p>
+      <p>
+        Another IntelliJ shortcut is <code>sout</code> + <code>TAB</code>. This
+        will generate <code>System.out.println()</code>, which you will
+        <em>certainly</em> get tired of typing. If you are on
+        <strong>Eclipse</strong>, <code>sysout</code> + <code>CTRL</code> +
+        <code>SPACE</code> does this too.
+      </p>
+      <h2 id="exit-codes">Exit Codes</h2>
+      <p>
+        When your program executes successfully (by exiting the
+        <code>main</code> method), you should see:
+      </p>
+      <pre
+        class="bordered"
+      ><code>Process finished with <span class="hljs-keyword">exit</span> code <span class="hljs-number">0</span></code></pre>
+      <p>
+        An exit code of <code>0</code> is successful, and anything else
+        (non-zero) indicates an error (typically <code>1</code>). While is is
+        generally bad practice, you can force an exit code with
+        <code>System.exit(0);</code> (or an integer of your choice).
+      </p>
     </main>
 
     <script
