@@ -217,3 +217,33 @@ pre.bordered {
 main.container {
     margin-bottom: 61px;
 }
+
+main.quiz h2:not(:first-of-type) {
+    margin-top: 40px;
+}
+
+.quiz .select-one {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 700px;
+    gap: 5px;
+    & > div {
+        & code {
+            color: black;
+        }
+        padding: 10px 20px;
+        border: 1px solid #bbb;
+        border-radius: 10px;
+        &.correct {
+            background-color: #6F6;
+        }
+        &.incorrect {
+            background-color: #F66;
+        }
+        & pre {
+            margin: 0;
+        }
+    }
+}
+

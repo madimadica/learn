@@ -69,8 +69,216 @@
       </a>
     </nav>
 
-    <main class="container">
+    <main class="container quiz">
       <h1>Chapter 2 Quiz</h1>
+
+      <h2>#1:</h2>
+      <section class="question">
+        <p>Suppose you have the following Java code:</p>
+<pre class="java bordered">
+<span class="keyword">public class</span> <span class="class">Hello</span> {
+    <span class="keyword">public static void</span> <span class="method">main</span>(<span class="class">String</span>[] args) {
+        <span class="class">System</span>.out.<span class="method">println</span>(<span class="string">"2 + 2 = "</span> + <span class="literal">2</span> + <span class="literal">2</span>);
+    }
+}
+</pre>
+      <span>What should be the name of the file?</span>
+      <div class="row">
+        <div class="col-md-3">
+          <input type="text" class="form-control" id="q1-input">
+        </div>
+        <div class="col-md-3">
+          <button type="button" class="btn btn-secondary" onclick="Quiz.check1()">Check Answer</button>
+        </div>
+      </div>
+      </section>
+
+      <h2>#2:</h2>
+      <section class="question">
+        <p>What do <strong>all</strong> statements end with in Java?</p>
+        <div class="row">
+          <div class="col-md-3">
+            <input type="text" class="form-control" id="q2-input">
+          </div>
+          <div class="col-md-3">
+            <button type="button" class="btn btn-secondary" onclick="Quiz.check2()">Check Answer</button>
+          </div>
+        </div>
+      </section>
+
+      <h2>#3:</h2>
+      <section class="question">
+        <p>Where is the entry point for a Java program?.</p>
+        <div class="row">
+          <div class="col-md-3">
+            <input type="text" class="form-control" id="q3-input">
+          </div>
+          <div class="col-md-3">
+            <button type="button" class="btn btn-secondary" onclick="Quiz.check3()">Check Answer</button>
+          </div>
+        </div>
+      </section>
+
+      <h2>#4:</h2>
+      <section class="question">
+        <p>What is the program exit code for a successful execution?</p>
+        <div class="row">
+          <div class="col-md-3">
+            <input type="text" class="form-control" id="q4-input">
+          </div>
+          <div class="col-md-3">
+            <button type="button" class="btn btn-secondary" onclick="Quiz.check4()">Check Answer</button>
+          </div>
+        </div>
+      </section>
+
+      <h2>#5:</h2>
+      <section class="question">
+        <p>Does code inside a comment get executed?</p>
+        <div id="q5-select" class="select-one">
+          <div>Yes</div>
+          <div data-correct>No</div>
+        </div>
+      </section>
+
+      <h2>#6:</h2>
+      <section class="question">
+        <p>How do you start a single-line comment in java?</p>
+        <div id="q6-select" class="select-one">
+          <div><code>#</code></div>
+          <div><code>--</code></div>
+          <div data-correct><code>//</code></div>
+          <div><code>/</code></div>
+        </div>
+      </section>
+
+      <h2>#7:</h2>
+      <section class="question">
+        <p>What type of comment is this an example of?</p>
+<pre class="bordered">
+<span class="comment">/*
+ * This is a comment
+ */</span>
+</pre>
+        <div id="q7-select" class="select-one">
+          <div>Single-line comment</div>
+          <div data-correct>Multi-line comment</div>
+          <div>Javadoc comment</div>
+          <div>TODO comment</div>
+        </div>
+      </section>
+
+      <h2>#8:</h2>
+      <section class="question">
+        <p>What will the output of this main method be?</p>
+<pre class="bordered">
+public static void main(String[] args) {
+    // System.out.println("hello world");
+}
+</pre>
+        <div id="q8-select" class="select-one">
+          <div><em>No output</em></div>
+          <div data-correct><code>hello world</code></div>
+          <div><em>The program will crash</em></div>
+        </div>
+      </section>
+
+      
+      <h2>#9:</h2>
+      <section class="question">
+        <p>Which of the following is <strong>not</strong> one of the most common types of whitespace?</p>
+        <div id="q9-select" class="select-one">
+          <div>newlines</div>
+          <div data-correct>carriage returns</div>
+          <div>spaces</div>
+          <div>tabs</div>
+        </div>
+      </section>
+
+      <h2>#10:</h2>
+      <section class="question">
+        <p>What is the output of this code?</p>
+<pre class="bordered java">
+<span class="keyword">public static void</span> <span class="method">main</span>(<span class="class">String</span>[] args) {
+    <span class="class">System</span>.out.<span class="method">print</span>(<span class="string">"hello"</span>);
+    <span class="class">System</span>.out.<span class="method">print</span>(<span class="string">"world"</span>);
+}
+</pre>
+        <div id="q10-select" class="select-one">
+          <div><pre>hello world</pre></div>
+          <div data-correct><pre>helloworld</pre></div>
+          <div><pre>hello
+world</pre></div>
+          <div><pre>world</pre></div>
+        </div>
+      </section>
+
+      <h2>#11:</h2>
+      <section class="question">
+        <p>Would this statement compile?</p>
+<pre class="bordered java">
+System.out.println("
+    hello
+    world
+");
+</pre>
+        <div id="q11-select" class="select-one">
+          <div>Yes</div>
+          <div data-correct>No</div>
+        </div>
+      </section>
+
+      <h2>#12:</h2>
+      <section class="question">
+        <p>Would this statement compile?</p>
+<pre class="bordered java">
+system.out.printline("hello world");
+</pre>
+        <div id="q12-select" class="select-one">
+          <div>Yes</div>
+          <div data-correct>No</div>
+        </div>
+      </section>
+
+      
+      <h2>#13:</h2>
+      <section class="question">
+        <p>Can a program with compilation errors execute?</p>
+        <div id="q13-select" class="select-one">
+          <div>Yes</div>
+          <div data-correct>No</div>
+        </div>
+      </section>
+
+            
+      <h2>#14:</h2>
+      <section class="question">
+        <p>Can a program with a logic-error execute?</p>
+        <div id="q14-select" class="select-one">
+          <div data-correct>Yes</div>
+          <div>No</div>
+        </div>
+      </section>
+
+                  
+      <h2>#15:</h2>
+      <section class="question">
+        <p>Which line of source code did this compilation error occur on?</p>
+<pre>
+C:\Code\sandbox\src\Main.java:5:19
+java: cannot find symbol
+  symbol:   method printLine(java.lang.String)
+  location: variable out of type java.io.PrintStream
+</pre>
+        <div class="row">
+          <div class="col-md-3">
+            <input type="text" class="form-control" id="q15-input">
+          </div>
+          <div class="col-md-3">
+            <button type="button" class="btn btn-secondary" onclick="Quiz.check15()">Check Answer</button>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script
@@ -80,5 +288,6 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/static/functions.js"></script>
+    <script src="./quiz.js"></script>
   </body>
 </html>
