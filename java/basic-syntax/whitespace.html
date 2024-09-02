@@ -70,7 +70,206 @@
     </nav>
 
     <main class="container">
-      <h1>2.4 - Whitespace</h1>
+      <h1 id="whitespace">Whitespace</h1>
+      <p>
+        <strong>Whitespace</strong> characters are special characters used to
+        represent vertical and horizontal spacing. The most common types are
+        <em>spaces</em>, <em>tabs</em>, and <em>newlines</em>. There are other
+        whitespace types that are rarely used, such as form-feeds, zero-width
+        spaces or vertical tabs - but we will ignore these.
+      </p>
+      <p>
+        Horizontal whitespace adds spacing from left to right, where vertical
+        whitespace adds spacing from top to bottom.
+      </p>
+      <h2 id="spaces">Spaces</h2>
+      <p>
+        A <strong>space</strong> is the most common type of whitespace. It is a
+        single width horizontal character, created with the spacebar. An
+        interesting note is that spaces have an ASCII value <code>32</code>, or
+        a hexadecimal value of <code>0x20</code>. (This is why some web URLs
+        have <code>%20</code>, to encode a space.)
+      </p>
+      <h2 id="tabs">Tabs</h2>
+      <p>
+        A <strong>tab</strong> is a the other main type of horizontal
+        whitespace, created with the TAB key. The tab-width depends on the
+        application rendering it. A typical tab-width is 4 spaces, so pressing
+        TAB will go to the <em>next</em> multiple of 4. If you are at position
+        3, tab moves to 4. A tab at position 4 moves to position 8. Some less
+        common tab-widths are 2, 3, and 8.
+      </p>
+      <h2 id="newlines">Newlines</h2>
+      <p>
+        <strong>Newlines</strong>, also referred to as a <em>line feed</em>,
+        create a single line of vertical whitespace. Breaking the text at the
+        current line, and continuing at the start of the next. You can create
+        newlines with the ENTER key.
+      </p>
+      <h2 id="carriage-returns">Carriage Returns</h2>
+      <p>
+        A <strong>carriage return</strong> is a special control character to
+        move the cursor to the <em>beginning</em> of a line. Anything typed
+        <em>after</em> it will replace the contents of the current-line, unless
+        it is a newline character. While it is technically considered whitespace,
+        it does not have any visual representation. Carriage returns are usually used in
+        combination with line-feeds on windows systems.
+      </p>
+      <h2 id="java-escape-sequences">Java Escape Sequences</h2>
+      <p>
+        You can use whitespaces inside Java Strings. Some whitespaces must be
+        escaped using special <em>escape sequences</em> that begin with a
+        backslash. Others can be directly typed in.
+      </p>
+      <p>
+        A <em>space</em> is typed using the spacebar.
+        </p><p>A <em>tab</em> is typed
+        with the TAB key, or using the <code>\t</code> escape sequence.</p><p>
+        A <em>newline</em> can only be created with the <code>\n</code> escape
+        sequence for Strings. In %chapter #%, we will learn about <em>text blocks</em> to
+        directly type in newlines without <code>\n</code>.</p><p>A <em>carriage return</em> can only be
+        created with the <code>\r</code> escape sequence.
+      </p>
+      <p>Examples of each are shown below.</p>
+<pre class="java bordered">
+<span class="keyword">public static void</span> <span class="method">main</span>(<span class="class">String</span>[] args) {
+    <span class="class">System</span>.out.<span class="method">println</span>(<span class="string">"Hello World"</span>); <span class="comment">// Space</span>
+    <span class="class">System</span>.out.<span class="method">println</span>(<span class="string">"Hello\tWorld"</span>); <span class="comment">// Tab</span>
+    <span class="class">System</span>.out.<span class="method">println</span>(<span class="string">"Hello\nWorld"</span>); <span class="comment">// Newline</span>
+    <span class="class">System</span>.out.<span class="method">println</span>(<span class="string">"Hello\rWorld"</span>); <span class="comment">// Carriage Return</span>
+    <span class="class">System</span>.out.<span class="method">println</span>(<span class="string">"Hello\r\nWorld"</span>); <span class="comment">// CRLF (carriage-return line-feed)</span>
+}
+</pre>
+      <p>
+        Try running the previous code, commenting off all but one line at a time
+        to see the different outputs. When you run the
+        <em>Carriage return</em> line, you should only see <code>World</code> in
+        the output. As previously mentioned, carriage returns move the cursor to
+        the <em>beginning</em> of the line, and replaces the contents (unless
+        the next character is <code>\n</code>). We will rarely use this fact,
+        but it is nice to be aware of it.
+      </p>
+      <h2 id="line-endings-windows-vs-unix">Line Endings: Windows vs. UNIX</h2>
+      <p>
+        Line endings are used to create a single line of whitespace, but they
+        are not always a simple <code>\n</code>. On UNIX systems, newlines
+        <em>are</em> just a single <code>\n</code>. But, Windows systems use
+        <code>\r\n</code> instead. This is sometimes abbreviated as
+        <em>CRLF</em>. Sometimes be an issue when using files across different
+        operating systems, but versioning tools like <em>git</em> can seamlessly
+        convert between them.
+      </p>
+      <p>
+        Java provides a way to get the correct line ending for the current
+        system with <code>System.lineSeparator()</code>. This returns
+        <code>\r\n</code> for Windows, and <code>\n</code> for UNIX systems.
+        Some methods, such as <code>System.out.println()</code>, will
+        automatically use the correct line separator. Most console apps should
+        work fine with <code>\n</code> (even on Windows), but text files can
+        cause problems.
+      </p>
+      <h2 id="-print-vs-println-">
+        <code>print</code> vs. <code>println</code>
+      </h2>
+      <p>
+        Java provides a few methods to print to the standard output. So far, we
+        have only used <code>System.out.println()</code>. Now that we know about
+        whitespaces, we will introduce <code>System.out.print()</code>. This
+        acts the same way as <code>System.out.println()</code>, except it
+        <em>does not</em> add a line ending to the output. Recall that
+        <code>println</code> stands for <em>print line</em>. Let&#39;s see some
+        examples.
+      </p>
+<pre class="java bordered">
+<span class="comment">// Print "hello" and "world" with a line ending between</span>
+<span class="class">System</span>.out.<span class="method">println</span>(<span class="string">"hello"</span>);
+<span class="class">System</span>.out.<span class="method">println</span>(<span class="string">"world"</span>);
+
+<span class="comment">// Use multiple 'print' methods to effectively print "hello world"</span>
+<span class="class">System</span>.out.<span class="method">print</span>(<span class="string">"he"</span>);
+<span class="class">System</span>.out.<span class="method">print</span>(<span class="string">"llo"</span>);
+<span class="class">System</span>.out.<span class="method">print</span>(<span class="string">" world"</span>);
+
+<span class="comment">// Use combinations of both</span>
+<span class="class">System</span>.out.<span class="method">print</span>(<span class="string">"hello "</span>);
+<span class="class">System</span>.out.<span class="method">println</span>(<span class="string">"world"</span>);
+<span class="class">System</span>.out.<span class="method">println</span>(<span class="string">"Exiting..."</span>);
+</pre>
+      <p>
+        Most of the time, <code>println()</code> is what we want. But, sometimes
+        we will use <code>print()</code> to keep the cursor on the same line,
+        such as prompting a user for input (starting in %chapter #%).
+      </p>
+      <h2 id="whitespace-significance">Whitespace Significance</h2>
+      <p>
+        Generally speaking, whitespace <em>does not</em> matter in Java, but
+        there are some places that do. Some places require <em>at least</em> one
+        whitespace (vertical or horizontal). This is usually between
+        <em>tokens</em>. An egregious example <em>hello world</em> program could
+        be
+      </p>
+<pre class="java bordered">
+<span class="comment">// This works... DONT do this.</span>
+<span class="keyword"> public     class</span>
+   <span class="class">HorribleExample</span>                   {
+      <span class="keyword">public        static
+void</span>     <span class="method">main</span>    (    <span class="class">String</span>  []    args
+  )
+ {         <span class="class">System</span>  .
+      out    . <span class="method">println</span>  (   <span class="string">"hello world"</span>
+      )
+   ;
+      }             }
+</pre>
+      <p>
+        but this is ugly and very difficult to read. So we will use a standard
+        format like we have already been doing.
+        
+      </p><p>Something we <em>can&#39;t</em> do is
+        <code>publicstaticvoidmain</code>. It is not obvious where one token
+        starts and the next begins, so the Java compiler fails to parse this.
+      </p>
+      <p>
+        One area that whitespace can cause problems is with Strings. Whitespace
+        <em>does</em> matter for Strings, as that is part of the String.
+        <code>&quot;hello world&quot;</code> is different from
+        <code>&quot;helloworld&quot;</code>. And as we mentioned with escape
+        sequences, you have to escape newlines in Strings. This means that the following
+        example will <strong>not</strong> work:
+      </p>
+<pre class="bordered java">
+<span class="class">System</span>.out.<span class="method">println</span>(<span class="string">"</span><span class="error"> 
+    1. one
+    2. two
+    3. three
+");</span>
+</pre>
+      <p>
+        This is because String literals must begin and end on the same line.
+        Instead we can use the newline escape sequences with
+        <code>System.out.println(&quot;1. one\n2. two\n3. three&quot;);</code>,
+        or wait until we learn how to use text blocks.
+      </p>
+      <p>
+        Whitespace also can matter for comments. Consider a single-line comment
+        like:
+      </p>
+<pre class="bordered java">
+<span class="comment">// This is part of the comment</span>
+<span class="error">but this is not, and is invalid</span>
+<span class="class">System</span>.out.<span class="method">println</span>(<span class="string">"hello world"</span>);
+</pre>
+      <p>
+        Because single line comments only apply to a <em>single</em> line, newlines end
+        the comment. The next line is assumed to be code, unless it begins another comment. Thus they carry significance here.
+      </p>
+      <h2 id="tabs-vs-spaces">Tabs vs. Spaces</h2>
+      <p>
+        While we are on the topic of whitespace, I will quickly bring up a
+        historical debate. Should you use tabs or spaces (for indenting your
+        code)? This is left as an exercise for the reader. This is mostly an inside joke for programmers, though some people
+        take the debate seriously. IDEs can be configured to use spaces/tabs interchangeably, replacing the opposite type based on tab-width.
+      </p>
     </main>
 
     <script
