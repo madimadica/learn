@@ -70,7 +70,30 @@
     </nav>
 
     <main class="container">
-      <h1>2.5 - Case-Sensitivity</h1>
+      <h1 id="case-sensitivity">2.5 - Case Sensitivity</h1>
+      <p>Java in <em>case-sensitive</em>, meaning uppercase and lowercase letters mean different things. <code>System</code> is not the same as <code>system</code>. As such, <code>system.out.println()</code> will not compile. This applies to all the tokens. The following statements will <strong>NOT</strong> compile:</p>
+<pre class="bordered java">
+<span class="class error">SYSTEM</span>.out.<span class="method">println</span>(<span class="string">"hello world"</span>); 
+<span class="class">System</span>.<span class="error">OUT</span>.<span class="method">println</span>(<span class="string">"hello world"</span>); 
+<span class="class">System</span>.out.<span class="method error">printLine</span>(<span class="string">"hello world"</span>); 
+</pre>
+      <p>Note that not all programming languages are case-sensitive, but <em>most</em> are. <em>Everything</em> in Java is case-sensitive. This is actually good because it reduces naming collisions. For example, <code>Foo</code> is different than <code>foo</code>. There are conventions for how to name things to keep code consistent, and we will review this in a few chapters when we know a few more topics.</p>
+      <h2 id="-main-"><code>main</code></h2>
+      <p>Recall that <code>public static void main(String[] args)</code> is your program&#39;s entry point. Since everything is case sensitive, the following will not work as main, but it will compile:</p>
+<pre class="bordered java">
+<span class="keyword">public static void</span> <span class="method">Main</span>(<span class="class">String</span>[] args) {
+    <span class="comment">// NOT the correct 'main' method</span>
+}
+</pre>
+
+      <p>Something that will not compile, even though <code>main</code> is lowercase, is</p>
+<pre class="bordered java">
+<span class="error">Public STATIC vOID</span> <span class="method">main</span>(<span class="class">String</span>[] args) {
+
+}
+</pre>
+      <p>because keywords like <code>public</code>, <code>static</code>, and <code>void</code> are all case-sensitive (everything is).</p>
+      
     </main>
 
     <script
