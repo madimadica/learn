@@ -3,6 +3,11 @@
     --madi-pink: #FFD7E0;
 }
 
+.container {
+    img {
+        max-width: 100%;
+    }
+}
 
 #madimadica-navbar {
     background-color: var(--madi-pink);
@@ -109,7 +114,7 @@
 
 .prev-link, .next-link {
     font-size: 2em;
-    color: var(--madi-gray);
+    color: black;
     position: fixed;
     display: flex;
     justify-content: center;
@@ -137,7 +142,7 @@
 /* <= 665 */
 @media (max-width: 665px) {
     .prev-link, .next-link {
-        bottom: 15px;
+        bottom: 5px;
         width: auto;
         margin: 0;
         max-width: none;
@@ -145,6 +150,20 @@
     }
 }
 
+@media (max-width: 665px) {
+    #bottom-page-nav {
+        display: block;
+        bottom: -1px;
+        width: 100%;
+        margin: 0;
+        height: 61px;
+        position: fixed;
+        background:rgba(255, 215, 224, 0.8);
+        max-width: none;
+        min-width: 0;
+    }
+}
 
-
-
+main.container {
+    margin-bottom: 61px;
+}
