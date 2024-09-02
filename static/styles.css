@@ -1,7 +1,50 @@
 :root {
     --madi-gray: #666;
     --madi-pink: #FFD7E0;
+    --pre-keyword: #B500B2;
+    --pre-method: #4078F3;
+    --pre-class: #7D00FF;
+    --pre-comment: #808080;
+    --pre-string: #289300;
+    --pre-literal: #EF6B8F;
+    --pre-error: red;
 }
+/* 
+.hljs-link {
+    text-decoration: underline
+} */
+
+pre.java {
+    display: block;
+    overflow-x: auto;
+    color: black;
+    & .keyword {
+        color: var(--pre-keyword);
+    }
+    & .method {
+        color: var(--pre-method);
+    }
+    & .class {
+        color: var(--pre-class);
+    }
+    & .comment {
+        color: var(--pre-comment);
+    }
+    & .string {
+        color: var(--pre-string);
+    }
+    & .literal {
+        color: var(--pre-literal);
+    }
+    & .error {
+        text-decoration: underline;
+        text-decoration-color: var(--pre-error);
+    }
+    & .javadoc-at {
+        font-weight: bold;
+    }
+}
+
 
 .container {
     img {

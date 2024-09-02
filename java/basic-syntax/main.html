@@ -14,10 +14,6 @@
     />
     <link
       rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css"
-    />
-    <link
-      rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
     <link rel="stylesheet" href="/static/styles.css" />
@@ -81,11 +77,11 @@
         In order for a Java program to be <em>executable</em>, it must have a
         main method. We have already seen this a few times. It looks like:
       </p>
-      <pre
-        class="bordered"
-      ><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-   
-}</code></pre>
+      <pre class="bordered java">
+<span class="keyword">public static void</span> <span class="method">main</span>(<span class="class">String</span>[] args) {
+    
+}
+</pre>
       <p>
         Excluding whitespace, and a few exceptions related to
         <code>String[] args</code>, main must be written <em>exactly</em> as
@@ -127,7 +123,7 @@
       </p>
       <pre
         class="bordered"
-      ><code>Process finished with <span class="hljs-keyword">exit</span> code <span class="hljs-number">0</span></code></pre>
+      >Process finished with exit code 0</pre>
       <p>
         An exit code of <code>0</code> is successful, and anything else
         (non-zero) indicates an error (typically <code>1</code>). While is is

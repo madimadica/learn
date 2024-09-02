@@ -14,10 +14,6 @@
     />
     <link
       rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css"
-    />
-    <link
-      rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
     <link rel="stylesheet" href="/static/styles.css" />
@@ -213,10 +209,11 @@
         Classes can contain multiple <em>methods</em>. So far, we have only seen
         the <em>main method</em>:
       </p>
-      <pre class="bordered"><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(<span class="hljs-keyword">String</span>[] args) {
-    System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"hello world"</span>);
+      <pre class="java bordered">
+<span class="keyword">public static void</span> <span class="method">main</span>(<span class="class">String</span>[] args) {
+    <span class="class">System</span>.out.<span class="method">println</span>(<span class="string">"hello world"</span>);
 }
-</code></pre>
+</pre>
 
       <p>
         In a few chapters we will create more methods, but until then
@@ -239,11 +236,12 @@
         Methods can contain multiple statements, and usually do. For example, it
         is perfectly okay to write
       </p>
-      <pre class="bordered"><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(<span class="hljs-keyword">String</span>[] args) {
-    System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"Hello"</span>);
-    System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"World!"</span>);
+      <pre class="bordered java">
+<span class="keyword">public static void</span> <span class="method">main</span>(<span class="class">String</span>[] args) {
+    <span class="class">System</span>.out.<span class="method">println</span>(<span class="string">"hello"</span>);
+    <span class="class">System</span>.out.<span class="method">println</span>(<span class="string">"world"</span>);
 }
-</code></pre>
+</pre>
       <p>
         Here we have <em>two</em> statements, each one ending in a semicolon.
         They are part of the <em>main</em> method. The method starts with a
@@ -253,11 +251,13 @@
         When you see an example statement such as <code>int x = 5;</code>,
         assume is is part of a larger file such as:
       </p>
-      <pre class="bordered"><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ExampleBoilerplate</span> {
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>) </span>{
-        <span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;
+      <pre class="bordered java">
+<span class="keyword">public class</span> <span class="class">ExampleBoilerplate</span> {
+    <span class="keyword">public static void</span> <span class="method">main</span>(<span class="class">String</span>[] args) {
+        <span class="keyword">int</span> x = <span class="literal">5</span>;
     }
-}</code></pre>
+}
+</pre>
       <p>
         To keep things tidy, we will ignore most of this verbose
         <em>boilerplate code</em> that we haven&#39;t learned the full meaning
