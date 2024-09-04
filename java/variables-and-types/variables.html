@@ -70,7 +70,542 @@
     </nav>
 
     <main class="container">
-      <h1>3.1 - Variables</h1>
+      <h1 id="3-1-variables">3.1 - Variables</h1>
+      <p>
+        A <strong>variable</strong> is a named location that stores a value
+        inside a program. In Java, variables must have a <em>name</em> and a
+        <em>type</em>. A <strong>type</strong>, or <em>datatype</em>, is the
+        type of data a variable is allowed to hold. This could be a piece of
+        text, a number, a picture, or nearly anything else. In the following
+        sections, we will study what some of these types actually are in Java.
+        But for now, some common datatypes used in this section are <code>int</code> and
+        <code>double</code>. Sometimes a variable name is referred to as an
+        <em>identifier</em>. But not all identifiers are variables; identifiers
+        can also be method or class names. So we will call them variables unless
+        referring to identifiers in general.
+      </p>
+      <p>
+        Neither the type nor the name of a variable can be changed once it is
+        created. The only part that can <em>vary</em> is the value, hence
+        <em>variable</em>.
+      </p>
+      <p>
+        Throughout this chapter, we will use an analogy of a storage box. On the
+        outside, we <em>must</em> write the name and datatype on it with a
+        <em>permanent</em> marker. Here, the datatype is in parentheses.
+      </p>
+      <p>
+        <div class="d-flex justify-content-center align-items-center">
+          <img src="./img/var_box.png" alt="Variable box" style="max-width: min(500px, 90%);">
+        </div>
+      </p>
+      <p>
+        On the inside, we will have a piece of paper with a value. If we want to
+        change the value of the variable (box), we <em>replace</em> the paper
+        value with a new one, throwing away the original. When we
+        <em>assign</em> a value to the variable (box), the piece of paper on the
+        inside is the <em>only</em> thing that changes, the outside will
+        <em>always</em> stay the same.
+      </p>
+      <h2 id="declaration">Declaration</h2>
+      <p>
+        A <strong>variable declaration</strong> is a programming statement that
+        <em>declares</em> a variable with a name and a type, but no value. This
+        would be like grabbing a new box and writing the name and type on it.
+        When just declaring a variable, there is no paper/value inside. This is
+        called an <em>uninitialized</em> variable.
+      </p>
+      <p>
+        <div class="d-flex justify-content-center align-items-center pb-3">
+          <img src="./img/box_uninitialized.png" alt="Uninitialized variable box" style="max-width: min(500px, 90%);">
+        </div>
+      <p>
+        The general form of a declaration is
+        <code>DataType variableName;</code>. For example,
+      </p>
+      <p>
+        <div class="d-flex justify-content-left align-items-center pb-2">
+          <img src="./img/declaration.png" alt="Declaration general form" style="max-width: min(300px, 100%);">
+        </div>
+      <p>
+        When a variable is declared, it <strong>cannot</strong> be used until it
+        is <em>initialized</em>. For this reason, it is uncommon to declare a
+        variable without initializing it at the same time.
+      </p>
+      <h2 id="initialization">Initialization</h2>
+      <p>
+        A <strong>variable initialization</strong> is a programming statement
+        that <em>initializes</em> the value of a variable. The initial value
+        must be the same datatype as the variable, or compatible with the type.
+        We will see more on compatibility in the next section. In order to
+        initialize a variable, we use the <em>assignment operator</em>, which is
+        a single equal sign <code>=</code>.
+      </p>
+<pre class="java bordered">
+<span class="keyword">double</span> total; <span class="comment">// Declare</span>
+total = <span class="literal">12.98</span>; <span class="comment">// Initialize</span>
+</pre>
+      <p>
+        However, the above code is very rare. Instead, programmers usually
+        declare <em>and</em> initialize a variable in the same statement:
+      </p>
+<pre class="java bordered">
+<span class="comment">// Declare and initialize</span>
+<span class="keyword">double</span> total = <span class="literal">12.98</span>;
+</pre>
+      <p>
+        The general form of a variable initialization is
+        <code>DataType variableName = initialValue;</code>, and is better
+        illustrated here:
+      </p>
+      <p>
+        <div class="d-flex justify-content-left align-items-center pb-2">
+          <img src="./img/init.png" alt="Initialization general form" style="max-width: min(525px, 100%);">
+        </div>
+      <p>
+        In our box analogy, this would be like putting this piece of paper
+        inside the box labeled by <strong>total</strong>:
+      </p>
+      <p>
+        <div class="d-flex justify-content-center align-items-center pb-2">
+          <img src="./img/box_double.png" alt="Variable Box Initialization" style="max-width: min(500px, 90%);">
+        </div>
+      <p>
+        Variables can be initialized to more than just a constant. Often times,
+        the value is the <em>result</em> of an <em>expression</em>. For example:
+      </p>
+<pre class="java bordered">
+<span class="comment">// Declare and initialize</span>
+<span class="keyword">double</span> diameter = radius * <span class="literal">2</span>;
+</pre>
+      <p>
+        Here, the <code>diameter</code> is initialized to <em>twice</em> the
+        value of <code>radius</code>. So, if <code>radius</code> had a value of
+        <strong>5</strong>, then <code>diameter</code> would be the result of
+        <strong>5 * 2</strong>, which is <strong>10</strong>. Whenever we use
+        the variable <code>diameter</code>, it does not recompute
+        <code>radius * 2</code>. Instead, the result of the expression is the
+        value that gets stored. As such, if we later assigned
+        <code>radius = 7;</code>, then <code>diameter</code> would still be
+        <strong>10</strong>.
+      </p>
+      <p>For example</p>
+<pre class="java bordered">
+<span class="keyword">double</span> radius = <span class="literal">5</span>;
+<span class="keyword">double</span> diameter = radius * <span class="literal">2</span>;
+<span class="class">System</span>.out.<span class="method">println</span>(radius); <span class="comment">// 5</span>
+<span class="class">System</span>.out.<span class="method">println</span>(diameter); <span class="comment">// 10</span>
+
+radius = <span class="literal">7</span>; <span class="comment">// Update radius</span>
+<span class="class">System</span>.out.<span class="method">println</span>(radius); <span class="comment">// 7</span>
+<span class="class">System</span>.out.<span class="method">println</span>(diameter); <span class="comment">// 10</span>
+</pre>
+      <p>
+        Later, when we learn about methods, we can use them in an expression
+        too.
+      </p>
+      <h2 id="strongly-typed">Strongly-typed</h2>
+      <p>
+        Java is a <strong>strongly-typed</strong> langauge. This means that all
+        variables have a datatype and the value <em>must</em> be compatible with
+        the type. This typing also determines what the allowed operations are
+        for that type (operators are in the next chapter). Any type violations,
+        such as storing text in a number, will cause a compilation error.
+      </p>
+      <h2 id="using-a-variable">Using a variable</h2>
+      <p>
+        A variable can be used, or accessed, by its name. Uninitialized
+        variables cannot be accessed, and will cause a compilation error if you
+        try. To use a variable, simply type out the variable&#39;s name where
+        you need it. For example, <code>System.out.println(radius);</code>. Any
+        variable or expression can be printed with <code>print</code> and
+        <code>println</code>. Variables can also be used in expressions, such as
+        <code>radius * 2</code>. This expression reads the value from
+        <code>radius</code> (by opening &quot;the box&quot;), and multiplies it
+        by 2. Thus, you can also do <code>System.out.println(radius * 2)</code>,
+        which prints the result of the expression <code>radius * 2</code>.
+      </p>
+      <h2 id="assignment">Assignment</h2>
+      <p>
+        An important part about variables is that they can <em>vary</em>. A
+        variable can be assigned to a value with a compatible type using the
+        <em>assignment operator</em> <code>=</code>. The value can be a
+        <em>literal</em> or an expression. Here are some examples:
+      </p>
+<pre class="bordered java">
+<span class="comment">// literal</span>
+<span class="keyword">int</span> x = <span class="literal">5</span>;
+
+<span class="comment">// result of an expression</span>
+<span class="keyword">int</span> y = x;
+
+<span class="comment">// result of an expression</span>
+<span class="keyword">int</span> z = x + <span class="literal">2</span>;
+</pre>
+      <h3 id="reassignment">Reassignment</h3>
+      <p>
+        Often times, you want to <em>update</em> the value of a variable after
+        it has been initialized. This is called <strong>reassignment</strong>.
+        The simplest form would be <code>variableName = value;</code>. Notice
+        that the datatype is not declared again. Datatypes are only part of a
+        variable declaration. When you reassign a variable, whatever data it
+        previously stored is gone forever (unless you stored a copy in another
+        variable). This is like replacing the paper in our box analogy.
+      </p>
+      <p>An example of reassignment is below:</p>
+<pre class="bordered java">
+<span class="keyword">int</span> x = <span class="literal">5</span>;
+<span class="class">System</span>.out.<span class="method">println</span>(x); <span class="comment">// 5</span>
+x = <span class="literal">4</span>;
+<span class="class">System</span>.out.<span class="method">println</span>(x); <span class="comment">// 4</span>
+</pre>
+      <h3 id="copying">Copying</h3>
+      <p>
+        When you assign a variable the <em>value</em> of another variable, it
+        copies the value. In the box analogy, this would be like photocopying
+        the paper in the original box, and placing the copy in the other box.
+        After the value has been copied, anything that happens to either
+        variable (box) is independent of the other. For example,
+      </p>
+<pre class="bordered java">
+<span class="keyword">int</span> x = <span class="literal">5</span>;
+<span class="keyword">int</span> y = x; <span class="comment">// store a copy of x, which is 5</span>
+x = <span class="literal">1</span> <span class="comment">// updates x only</span>
+<span class="class">System</span>.out.<span class="method">println</span>(x); <span class="comment">// 1</span>
+<span class="class">System</span>.out.<span class="method">println</span>(y); <span class="comment">// 5</span>
+</pre>
+      <p>
+        <code>y</code> was assigned a copy of <code>x</code>, which had the
+        value <strong>5</strong>. These are two separate boxes, so when we say
+        <code>x = 1;</code>, only <code>x</code>&#39;s box is updated.
+        Therefore, when we print out <code>y</code>, the copy of
+        <strong>5</strong> is still stored.
+      </p>
+      <h3 id="chained-assignments">Chained assignments</h3>
+      <p>
+        Every so often, you will want to assign the <em>same</em> value to
+        <em>multiple</em> variables. You can do this by <em>chaining</em> the
+        assignment operator. Suppose you have a few variables holding counts of
+        different things, and you want reset all of them to zero. Assuming all
+        these variables are already declared (or initialized), you can write
+      </p>
+<pre class="bordered java">
+appleCount = orangeCount = bananaCount = <span class="literal">0</span>;
+</pre>
+      <p>
+        This will only evaluate the expression on the right side <em>once</em>.
+        In this example, <strong>0</strong> is assigned to
+        <code>bananaCount</code>, then <code>bananaCount</code> is copied into
+        <code>orangeCount</code>, and finally <code>orangeCount</code> is copied
+        into <code>appleCount</code>. This is not used very often, but can
+        occasionally simplify a few lines of code. The longer way of doing the
+        previous block of code would be:
+      </p>
+<pre class="bordered java">
+appleCount = <span class="literal">0</span>;
+orangeCount = <span class="literal">0</span>;
+bananaCount = <span class="literal">0</span>;
+</pre>
+      <h2 id="multiple-declarations-and-initializations">
+        Multiple declarations and initializations
+      </h2>
+      <p>
+        It is possible to declare multiple variables in a single statement.
+        While I strongly discourage you from using this, I am still presenting
+        it so that you can read any code that does it. This can be done with a
+        comma-separated list of variables, all holding the same type. For
+        example,
+      </p>
+<pre class="bordered java">
+<span class="comment">// Declare 3 double variables</span>
+<span class="keyword">double</span> x, y, z;
+</pre>
+<pre class="bordered java">
+<span class="comment">// Declare and initialize 3 double variables</span>
+<span class="keyword">double</span> x = <span class="literal">0</span>, y = <span class="literal">1.5</span>, z = <span class="literal">72.5</span>;
+</pre>
+<pre class="bordered java">
+<span class="comment">// Declare and initialize some of the variables</span>
+<span class="keyword">double</span> x, y = <span class="literal">1.5</span>, z;
+</pre>
+      <p>
+        As you can see, once variable initializations are added, the readability
+        becomes awful. It is not <em>that</em> bad to simple declare variables,
+        but ultimately you will have to initialize them such as:
+      </p>
+<pre class="bordered java">
+<span class="comment">// Declare 3 double variables, then initialize</span>
+<span class="keyword">double</span> x, y, z;
+x = <span class="literal">0</span>;
+y = <span class="literal">1.5</span>;
+z = <span class="literal">72.5</span>;
+</pre>
+      <p>And at this point, you might as well have just done the normal way:</p>
+
+<pre class="bordered java">
+<span class="comment">// Directly initialize 3 double variables</span>
+<span class="keyword">double</span> x = <span class="literal">0</span>;
+<span class="keyword">double</span> y = <span class="literal">1.5</span>;
+<span class="keyword">double</span> z = <span class="literal">72.5</span>;
+</pre>
+      <h2 id="naming">Naming</h2>
+      <p>
+        The two hardest things in computer science are
+        <em>cache invalidation</em> and <em>naming things</em>. This is a
+        historical joke, but is accurate in a philosophical sense. For now, we
+        will only look at one of them: naming things.
+      </p>
+      <p>
+        There are two main things to worry about: what we <em>could</em> name
+        something, and what we <em>should</em> name something. The hard part is
+        what you <em>should</em> name something. There are an infinite number of
+        names you could choose, but which one would be the best? Would it be
+        better to use <code>numberOfUsers</code>, <code>userCount</code>, or
+        <code>totalUsers</code>? In this example, they are all good, but there
+        will be other times when pinpointing a descriptive name is trickier.
+      </p>
+      <p>
+        An important note is that variable names cannot be reused within the
+        same <em>scope</em>. We will start to see scopes in a few chapters. So
+        far, we have only used the scope of the <code>main</code>. This means
+        that all your variable names inside <code>main</code> must be
+        <em>unique</em>. Luckily, each method has its own set of unique variable
+        names, or else we&#39;d have a <em>really</em> hard time naming things.
+      </p>
+      <h3 id="allowed-names">Allowed Names</h3>
+      <p>
+        An allowed name is what Java allows us to use - what we
+        <em>could</em> use. Remember that Java is case-sensitive, so
+        <code>Total</code> would be different than <code>total</code>. Here are
+        the naming rules:
+      </p>
+      <ul>
+        <li>Cannot have whitespace.</li>
+        <li>Must start with a letter, <code>$</code>, or <code>_</code>.</li>
+        <li>
+          Subsequent characters can be letters, numbers, <code>$</code>, and
+          <code>_</code>.
+        </li>
+        <li>Cannot be a reserved keyword.</li>
+        <li>Can be context-sensitive keywords.</li>
+      </ul>
+      <h4 id="reserved-keywords">Reserved Keywords</h4>
+      <p>
+        <strong>Reserved keywords</strong>, commonly called <em>keywords</em>,
+        are special tokens that <em>cannot</em> be used as an identifier. Some
+        keywords that we have already seen are <code>public</code>,
+        <code>static</code>, <code>void</code>, and <code>class</code>. A table
+        listing all of the reserved keywords is below. You do not need to
+        memorize them. We will slowly learn about the different keywords when we
+        cover their respective topics. (Most of them wouldn&#39;t make be good
+        variable names anyways.)
+      </p>
+      <div class="table-responsive">
+        <table class="table" style="font-family: monospace">
+          <tr>
+              <td>abstract</td>
+              <td>continue</td>
+              <td>for</td>
+              <td>new</td>
+              <td>switch</td>
+          </tr>
+          <tr>
+              <td>assert</td>
+              <td>default</td>
+              <td>if</td>
+              <td>package</td>
+              <td>synchronized</td>
+          </tr>
+          <tr>
+              <td>boolean</td>
+              <td>do</td>
+              <td>goto</td>
+              <td>private</td>
+              <td>this</td>
+          </tr>
+          <tr>
+              <td>break</td>
+              <td>double</td>
+              <td>implements</td>
+              <td>protected</td>
+              <td>throw</td>
+          </tr>
+          <tr>
+              <td>byte</td>
+              <td>else</td>
+              <td>import</td>
+              <td>public</td>
+              <td>throws</td>
+          </tr>
+          <tr>
+              <td>case</td>
+              <td>enum</td>
+              <td>instanceof</td>
+              <td>return</td>
+              <td>transient</td>
+          </tr>
+          <tr>
+              <td>catch</td>
+              <td>extends</td>
+              <td>int</td>
+              <td>short</td>
+              <td>try</td>
+          </tr>
+          <tr>
+              <td>char</td>
+              <td>final</td>
+              <td>interface</td>
+              <td>static</td>
+              <td>void</td>
+          </tr>
+          <tr>
+              <td>class</td>
+              <td>finally</td>
+              <td>long</td>
+              <td>strictfp</td>
+              <td>volatile</td>
+          </tr>
+          <tr>
+              <td>const</td>
+              <td>float</td>
+              <td>native</td>
+              <td>super</td>
+              <td>while</td>
+          </tr>
+          <tr>
+              <td>_ (underscore)</td>
+          </tr>
+      </table>
+      </div>
+      
+
+      <h4 id="contextual-keywords">Contextual Keywords</h4>
+      <p>
+        <strong>Contextual keywords</strong> are keywords that are only reserved
+        in certain situations. Most of these keywords were only added to newer
+        versions of Java, so if they were fully reserved, old Java code using
+        these keywords as variables wouldn't compile.
+        So, contextual keywords were added to help with forwards-compatibility,
+        meaning old code should still work on newer versions.
+      </p>
+      <div class="table-responsive">
+        <table class="table" style="font-family: monospace;">
+          <tr>
+              <td>exports</td>
+              <td>opens</td>
+              <td>requires</td>
+              <td>uses</td>
+              <td>yield</td>
+          </tr>
+          <tr>
+              <td>module</td>
+              <td>permits</td>
+              <td>sealed</td>
+              <td>var</td>
+              <td></td>
+          </tr>
+          <tr>
+              <td>non-sealed</td>
+              <td>provides</td>
+              <td>to</td>
+              <td>when</td>
+              <td></td>
+          </tr>
+          <tr>
+              <td>open</td>
+              <td>record</td>
+              <td>transitive</td>
+              <td>with</td>
+              <td></td>
+          </tr>
+      </table>
+      </div>
+      
+    
+      <h3 id="java-variable-naming-conventions">
+        Java Variable Naming Conventions
+      </h3>
+      <p>
+        Now that we know what we <em>could</em> name a variable, lets discuss
+        how you <em>should</em> (or <em>shouldn&#39;t</em>) name something.
+        These rules are called <em>naming conventions</em>, and they help to
+        keep Java source code consistent. That way, any Java developer could
+        join any project and wouldn&#39;t have to learn a new set of rules, or
+        would be able to read other developers code more easily. Most
+        programming languages have well-established conventions, not just Java.
+        The standard variable naming conventions in Java are as follows:
+      </p>
+      <ul>
+        <li>Use lower camel-case.</li>
+        <li>Do not use a <code>$</code> in variable names.</li>
+        <li>Do not use <code>_</code> in variable names (except constants).</li>
+        <li>
+          Do not use any context-sensitive keywords as variable names.
+        </li>
+      </ul>
+      <p>
+        In addition to the standard rules, there are also some common naming
+        recommendations. Avoid using abbreviations and acronyms unless they are
+        well-known, such as HTML or GUI. This would also include avoiding
+        <code>no</code> or <code>num</code> instead of <code>number</code>.
+      </p>
+      <h4 id="lower-camel-case">Lower Camel Case</h4>
+      <p>
+        Lower camel-case is a naming format to combine multiple words into a
+        single identifier (without spaces). It is defined by starting with a
+        lowercase letter, and then the first letter of each subsequent word
+        capitalized. In the end, the identifier somewhat resembles the humps on
+        a camel&#39;s back. Here is a table of examples: 
+      </p>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead>
+              <tr>
+                  <th>Phrase</th>
+                  <th>Lower camel-case</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>number of users</td>
+                  <td style="font-family: monospace;">numberOfUsers</td>
+              </tr>
+              <tr>
+                  <td>total price</td>
+                  <td style="font-family: monospace;">totalPrice</td>
+              </tr>
+              <tr>
+                  <td>count</td>
+                  <td style="font-family: monospace;">count</td>
+              </tr>
+              <tr>
+                  <td>subscription tier</td>
+                  <td style="font-family: monospace;">subscriptionTier</td>
+              </tr>
+              <tr>
+                  <td>jar of dirt</td>
+                  <td style="font-family: monospace;">jarOfDirt</td>
+              </tr>
+              <tr>
+                  <td>average rainfall</td>
+                  <td style="font-family: monospace;">averageRainfall</td>
+              </tr>
+              <tr>
+                  <td>HTML</td>
+                  <td style="font-family: monospace;">html</td>
+              </tr>
+              <tr>
+                  <td>ID</td>
+                  <td style="font-family: monospace;">id</td>
+              </tr>
+              <tr>
+                  <td>favorite TV show</td>
+                  <td style="font-family: monospace;">favoriteTvShow</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+      
     </main>
 
     <script
