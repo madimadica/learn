@@ -78,11 +78,11 @@
         type of data a variable is allowed to hold. This could be a piece of
         text, a number, a picture, or nearly anything else. In the following
         sections, we will study what some of these types actually are in Java.
-        But for now, some common datatypes used in this section are <code>int</code> and
-        <code>double</code>. Sometimes a variable name is referred to as an
-        <em>identifier</em>. But not all identifiers are variables; identifiers
-        can also be method or class names. So we will call them variables unless
-        referring to identifiers in general.
+        But for now, some common datatypes used in this section are
+        <code>int</code> and <code>double</code>. Sometimes a variable name is
+        referred to as an <em>identifier</em>. But not all identifiers are
+        variables; identifiers can also be method or class names. So we will
+        call them variables unless referring to identifiers in general.
       </p>
       <p>
         Neither the type nor the name of a variable can be changed once it is
@@ -94,11 +94,13 @@
         outside, we <em>must</em> write the name and datatype on it with a
         <em>permanent</em> marker. Here, the datatype is in parentheses.
       </p>
-      <p>
-        <div class="d-flex justify-content-center align-items-center">
-          <img src="./img/var_box.png" alt="Variable box" style="max-width: min(500px, 90%);">
-        </div>
-      </p>
+      <div class="d-flex justify-content-center align-items-center pb-4">
+        <img
+          src="./img/var_box.png"
+          alt="Variable box"
+          style="max-width: min(500px, 90%)"
+        />
+      </div>
       <p>
         On the inside, we will have a piece of paper with a value. If we want to
         change the value of the variable (box), we <em>replace</em> the paper
@@ -115,18 +117,24 @@
         When just declaring a variable, there is no paper/value inside. This is
         called an <em>uninitialized</em> variable.
       </p>
-      <p>
-        <div class="d-flex justify-content-center align-items-center pb-3">
-          <img src="./img/box_uninitialized.png" alt="Uninitialized variable box" style="max-width: min(500px, 90%);">
-        </div>
+      <div class="d-flex justify-content-center align-items-center p-3">
+        <img
+          src="./img/box_uninitialized.png"
+          alt="Uninitialized variable box"
+          style="max-width: min(500px, 90%)"
+        />
+      </div>
       <p>
         The general form of a declaration is
         <code>DataType variableName;</code>. For example,
       </p>
-      <p>
-        <div class="d-flex justify-content-left align-items-center pb-2">
-          <img src="./img/declaration.png" alt="Declaration general form" style="max-width: min(300px, 100%);">
-        </div>
+      <div class="d-flex justify-content-left align-items-center pb-2">
+        <img
+          src="./img/declaration.png"
+          alt="Declaration general form"
+          style="max-width: min(300px, 100%)"
+        />
+      </div>
       <p>
         When a variable is declared, it <strong>cannot</strong> be used until it
         is <em>initialized</em>. For this reason, it is uncommon to declare a
@@ -141,7 +149,7 @@
         initialize a variable, we use the <em>assignment operator</em>, which is
         a single equal sign <code>=</code>.
       </p>
-<pre class="java bordered">
+      <pre class="java bordered">
 <span class="keyword">double</span> total; <span class="comment">// Declare</span>
 total = <span class="literal">12.98</span>; <span class="comment">// Initialize</span>
 </pre>
@@ -149,7 +157,7 @@ total = <span class="literal">12.98</span>; <span class="comment">// Initialize<
         However, the above code is very rare. Instead, programmers usually
         declare <em>and</em> initialize a variable in the same statement:
       </p>
-<pre class="java bordered">
+      <pre class="java bordered">
 <span class="comment">// Declare and initialize</span>
 <span class="keyword">double</span> total = <span class="literal">12.98</span>;
 </pre>
@@ -158,23 +166,29 @@ total = <span class="literal">12.98</span>; <span class="comment">// Initialize<
         <code>DataType variableName = initialValue;</code>, and is better
         illustrated here:
       </p>
-      <p>
-        <div class="d-flex justify-content-left align-items-center pb-2">
-          <img src="./img/init.png" alt="Initialization general form" style="max-width: min(525px, 100%);">
-        </div>
+      <div class="d-flex justify-content-left align-items-center pb-2">
+        <img
+          src="./img/init.png"
+          alt="Initialization general form"
+          style="max-width: min(525px, 100%)"
+        />
+      </div>
       <p>
         In our box analogy, this would be like putting this piece of paper
         inside the box labeled by <strong>total</strong>:
       </p>
-      <p>
-        <div class="d-flex justify-content-center align-items-center pb-2">
-          <img src="./img/box_double.png" alt="Variable Box Initialization" style="max-width: min(500px, 90%);">
-        </div>
+      <div class="d-flex justify-content-center align-items-center pb-3">
+        <img
+          src="./img/box_double.png"
+          alt="Variable Box Initialization"
+          style="max-width: min(500px, 90%)"
+        />
+      </div>
       <p>
         Variables can be initialized to more than just a constant. Often times,
         the value is the <em>result</em> of an <em>expression</em>. For example:
       </p>
-<pre class="java bordered">
+      <pre class="java bordered">
 <span class="comment">// Declare and initialize</span>
 <span class="keyword">double</span> diameter = radius * <span class="literal">2</span>;
 </pre>
@@ -190,7 +204,7 @@ total = <span class="literal">12.98</span>; <span class="comment">// Initialize<
         <strong>10</strong>.
       </p>
       <p>For example</p>
-<pre class="java bordered">
+      <pre class="java bordered">
 <span class="keyword">double</span> radius = <span class="literal">5</span>;
 <span class="keyword">double</span> diameter = radius * <span class="literal">2</span>;
 <span class="class">System</span>.out.<span class="method">println</span>(radius); <span class="comment">// 5</span>
@@ -232,7 +246,7 @@ radius = <span class="literal">7</span>; <span class="comment">// Update radius<
         <em>assignment operator</em> <code>=</code>. The value can be a
         <em>literal</em> or an expression. Here are some examples:
       </p>
-<pre class="bordered java">
+      <pre class="bordered java">
 <span class="comment">// literal</span>
 <span class="keyword">int</span> x = <span class="literal">5</span>;
 
@@ -253,7 +267,7 @@ radius = <span class="literal">7</span>; <span class="comment">// Update radius<
         variable). This is like replacing the paper in our box analogy.
       </p>
       <p>An example of reassignment is below:</p>
-<pre class="bordered java">
+      <pre class="bordered java">
 <span class="keyword">int</span> x = <span class="literal">5</span>;
 <span class="class">System</span>.out.<span class="method">println</span>(x); <span class="comment">// 5</span>
 x = <span class="literal">4</span>;
@@ -267,7 +281,7 @@ x = <span class="literal">4</span>;
         After the value has been copied, anything that happens to either
         variable (box) is independent of the other. For example,
       </p>
-<pre class="bordered java">
+      <pre class="bordered java">
 <span class="keyword">int</span> x = <span class="literal">5</span>;
 <span class="keyword">int</span> y = x; <span class="comment">// store a copy of x, which is 5</span>
 x = <span class="literal">1</span> <span class="comment">// updates x only</span>
@@ -289,7 +303,7 @@ x = <span class="literal">1</span> <span class="comment">// updates x only</span
         different things, and you want reset all of them to zero. Assuming all
         these variables are already declared (or initialized), you can write
       </p>
-<pre class="bordered java">
+      <pre class="bordered java">
 appleCount = orangeCount = bananaCount = <span class="literal">0</span>;
 </pre>
       <p>
@@ -301,7 +315,7 @@ appleCount = orangeCount = bananaCount = <span class="literal">0</span>;
         occasionally simplify a few lines of code. The longer way of doing the
         previous block of code would be:
       </p>
-<pre class="bordered java">
+      <pre class="bordered java">
 appleCount = <span class="literal">0</span>;
 orangeCount = <span class="literal">0</span>;
 bananaCount = <span class="literal">0</span>;
@@ -316,15 +330,15 @@ bananaCount = <span class="literal">0</span>;
         comma-separated list of variables, all holding the same type. For
         example,
       </p>
-<pre class="bordered java">
+      <pre class="bordered java">
 <span class="comment">// Declare 3 double variables</span>
 <span class="keyword">double</span> x, y, z;
 </pre>
-<pre class="bordered java">
+      <pre class="bordered java">
 <span class="comment">// Declare and initialize 3 double variables</span>
 <span class="keyword">double</span> x = <span class="literal">0</span>, y = <span class="literal">1.5</span>, z = <span class="literal">72.5</span>;
 </pre>
-<pre class="bordered java">
+      <pre class="bordered java">
 <span class="comment">// Declare and initialize some of the variables</span>
 <span class="keyword">double</span> x, y = <span class="literal">1.5</span>, z;
 </pre>
@@ -333,7 +347,7 @@ bananaCount = <span class="literal">0</span>;
         becomes awful. It is not <em>that</em> bad to simple declare variables,
         but ultimately you will have to initialize them such as:
       </p>
-<pre class="bordered java">
+      <pre class="bordered java">
 <span class="comment">// Declare 3 double variables, then initialize</span>
 <span class="keyword">double</span> x, y, z;
 x = <span class="literal">0</span>;
@@ -342,7 +356,7 @@ z = <span class="literal">72.5</span>;
 </pre>
       <p>And at this point, you might as well have just done the normal way:</p>
 
-<pre class="bordered java">
+      <pre class="bordered java">
 <span class="comment">// Directly initialize 3 double variables</span>
 <span class="keyword">double</span> x = <span class="literal">0</span>;
 <span class="keyword">double</span> y = <span class="literal">1.5</span>;
@@ -403,125 +417,127 @@ z = <span class="literal">72.5</span>;
       <div class="table-responsive">
         <table class="table" style="font-family: monospace">
           <tr>
-              <td>abstract</td>
-              <td>continue</td>
-              <td>for</td>
-              <td>new</td>
-              <td>switch</td>
+            <td>abstract</td>
+            <td>continue</td>
+            <td>for</td>
+            <td>new</td>
+            <td>switch</td>
           </tr>
           <tr>
-              <td>assert</td>
-              <td>default</td>
-              <td>if</td>
-              <td>package</td>
-              <td>synchronized</td>
+            <td>assert</td>
+            <td>default</td>
+            <td>if</td>
+            <td>package</td>
+            <td>synchronized</td>
           </tr>
           <tr>
-              <td>boolean</td>
-              <td>do</td>
-              <td>goto</td>
-              <td>private</td>
-              <td>this</td>
+            <td>boolean</td>
+            <td>do</td>
+            <td>goto</td>
+            <td>private</td>
+            <td>this</td>
           </tr>
           <tr>
-              <td>break</td>
-              <td>double</td>
-              <td>implements</td>
-              <td>protected</td>
-              <td>throw</td>
+            <td>break</td>
+            <td>double</td>
+            <td>implements</td>
+            <td>protected</td>
+            <td>throw</td>
           </tr>
           <tr>
-              <td>byte</td>
-              <td>else</td>
-              <td>import</td>
-              <td>public</td>
-              <td>throws</td>
+            <td>byte</td>
+            <td>else</td>
+            <td>import</td>
+            <td>public</td>
+            <td>throws</td>
           </tr>
           <tr>
-              <td>case</td>
-              <td>enum</td>
-              <td>instanceof</td>
-              <td>return</td>
-              <td>transient</td>
+            <td>case</td>
+            <td>enum</td>
+            <td>instanceof</td>
+            <td>return</td>
+            <td>transient</td>
           </tr>
           <tr>
-              <td>catch</td>
-              <td>extends</td>
-              <td>int</td>
-              <td>short</td>
-              <td>try</td>
+            <td>catch</td>
+            <td>extends</td>
+            <td>int</td>
+            <td>short</td>
+            <td>try</td>
           </tr>
           <tr>
-              <td>char</td>
-              <td>final</td>
-              <td>interface</td>
-              <td>static</td>
-              <td>void</td>
+            <td>char</td>
+            <td>final</td>
+            <td>interface</td>
+            <td>static</td>
+            <td>void</td>
           </tr>
           <tr>
-              <td>class</td>
-              <td>finally</td>
-              <td>long</td>
-              <td>strictfp</td>
-              <td>volatile</td>
+            <td>class</td>
+            <td>finally</td>
+            <td>long</td>
+            <td>strictfp</td>
+            <td>volatile</td>
           </tr>
           <tr>
-              <td>const</td>
-              <td>float</td>
-              <td>native</td>
-              <td>super</td>
-              <td>while</td>
+            <td>const</td>
+            <td>float</td>
+            <td>native</td>
+            <td>super</td>
+            <td>while</td>
           </tr>
           <tr>
-              <td>_ (underscore)</td>
+            <td>_ (underscore)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
-      </table>
+        </table>
       </div>
-      
 
       <h4 id="contextual-keywords">Contextual Keywords</h4>
       <p>
         <strong>Contextual keywords</strong> are keywords that are only reserved
         in certain situations. Most of these keywords were only added to newer
         versions of Java, so if they were fully reserved, old Java code using
-        these keywords as variables wouldn't compile.
-        So, contextual keywords were added to help with forwards-compatibility,
-        meaning old code should still work on newer versions.
+        these keywords as variables wouldn't compile. So, contextual keywords
+        were added to help with forwards-compatibility, meaning old code should
+        still work on newer versions.
       </p>
       <div class="table-responsive">
-        <table class="table" style="font-family: monospace;">
+        <table class="table" style="font-family: monospace">
           <tr>
-              <td>exports</td>
-              <td>opens</td>
-              <td>requires</td>
-              <td>uses</td>
-              <td>yield</td>
+            <td>exports</td>
+            <td>opens</td>
+            <td>requires</td>
+            <td>uses</td>
+            <td>yield</td>
           </tr>
           <tr>
-              <td>module</td>
-              <td>permits</td>
-              <td>sealed</td>
-              <td>var</td>
-              <td></td>
+            <td>module</td>
+            <td>permits</td>
+            <td>sealed</td>
+            <td>var</td>
+            <td></td>
           </tr>
           <tr>
-              <td>non-sealed</td>
-              <td>provides</td>
-              <td>to</td>
-              <td>when</td>
-              <td></td>
+            <td>non-sealed</td>
+            <td>provides</td>
+            <td>to</td>
+            <td>when</td>
+            <td></td>
           </tr>
           <tr>
-              <td>open</td>
-              <td>record</td>
-              <td>transitive</td>
-              <td>with</td>
-              <td></td>
+            <td>open</td>
+            <td>record</td>
+            <td>transitive</td>
+            <td>with</td>
+            <td></td>
           </tr>
-      </table>
+        </table>
       </div>
-      
-    
+
       <h3 id="java-variable-naming-conventions">
         Java Variable Naming Conventions
       </h3>
@@ -539,9 +555,7 @@ z = <span class="literal">72.5</span>;
         <li>Use lower camel-case.</li>
         <li>Do not use a <code>$</code> in variable names.</li>
         <li>Do not use <code>_</code> in variable names (except constants).</li>
-        <li>
-          Do not use any context-sensitive keywords as variable names.
-        </li>
+        <li>Do not use any context-sensitive keywords as variable names.</li>
       </ul>
       <p>
         In addition to the standard rules, there are also some common naming
@@ -555,57 +569,56 @@ z = <span class="literal">72.5</span>;
         single identifier (without spaces). It is defined by starting with a
         lowercase letter, and then the first letter of each subsequent word
         capitalized. In the end, the identifier somewhat resembles the humps on
-        a camel&#39;s back. Here is a table of examples: 
+        a camel&#39;s back. Here is a table of examples:
       </p>
       <div class="table-responsive">
         <table class="table table-bordered table-striped">
           <thead>
-              <tr>
-                  <th>Phrase</th>
-                  <th>Lower camel-case</th>
-              </tr>
+            <tr>
+              <th>Phrase</th>
+              <th>Lower camel-case</th>
+            </tr>
           </thead>
           <tbody>
-              <tr>
-                  <td>number of users</td>
-                  <td style="font-family: monospace;">numberOfUsers</td>
-              </tr>
-              <tr>
-                  <td>total price</td>
-                  <td style="font-family: monospace;">totalPrice</td>
-              </tr>
-              <tr>
-                  <td>count</td>
-                  <td style="font-family: monospace;">count</td>
-              </tr>
-              <tr>
-                  <td>subscription tier</td>
-                  <td style="font-family: monospace;">subscriptionTier</td>
-              </tr>
-              <tr>
-                  <td>jar of dirt</td>
-                  <td style="font-family: monospace;">jarOfDirt</td>
-              </tr>
-              <tr>
-                  <td>average rainfall</td>
-                  <td style="font-family: monospace;">averageRainfall</td>
-              </tr>
-              <tr>
-                  <td>HTML</td>
-                  <td style="font-family: monospace;">html</td>
-              </tr>
-              <tr>
-                  <td>ID</td>
-                  <td style="font-family: monospace;">id</td>
-              </tr>
-              <tr>
-                  <td>favorite TV show</td>
-                  <td style="font-family: monospace;">favoriteTvShow</td>
-                </tr>
-            </tbody>
+            <tr>
+              <td>number of users</td>
+              <td style="font-family: monospace">numberOfUsers</td>
+            </tr>
+            <tr>
+              <td>total price</td>
+              <td style="font-family: monospace">totalPrice</td>
+            </tr>
+            <tr>
+              <td>count</td>
+              <td style="font-family: monospace">count</td>
+            </tr>
+            <tr>
+              <td>subscription tier</td>
+              <td style="font-family: monospace">subscriptionTier</td>
+            </tr>
+            <tr>
+              <td>jar of dirt</td>
+              <td style="font-family: monospace">jarOfDirt</td>
+            </tr>
+            <tr>
+              <td>average rainfall</td>
+              <td style="font-family: monospace">averageRainfall</td>
+            </tr>
+            <tr>
+              <td>HTML</td>
+              <td style="font-family: monospace">html</td>
+            </tr>
+            <tr>
+              <td>ID</td>
+              <td style="font-family: monospace">id</td>
+            </tr>
+            <tr>
+              <td>favorite TV show</td>
+              <td style="font-family: monospace">favoriteTvShow</td>
+            </tr>
+          </tbody>
         </table>
       </div>
-      
     </main>
 
     <script
