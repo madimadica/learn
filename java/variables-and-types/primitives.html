@@ -70,7 +70,888 @@
     </nav>
 
     <main class="container">
-      <h1>3.2 - Primitive Types</h1>
+      <h1 id="primitive-data-types">3.2 - Primitive Data Types</h1>
+      <p>
+        Datatypes in Java are split into two categories: <em>primitive</em> and
+        <em>reference</em> types. <strong>Primitive data types</strong>, or
+        simply <em>primitives</em>, are the simplest types predefined by Java.
+        Primitives are the closest thing to the raw binary values used by
+        computer hardware. It is from these primitive types that all reference
+        types can be built of. There are exactly 8 primitive types, but no limit
+        reference types. The Java primitives are <code>boolean</code>,
+        <code>byte</code>, <code>short</code>, <code>int</code>,
+        <code>long</code>, <code>float</code>, <code>double</code> and
+        <code>char</code>. Note, these constitute for 8 of the
+        <em>reserved keywords</em>. The biggest differences are how many
+        <em>bits</em> they represent and the allowed operations (such as
+        addition and subtraction). Another difference is that primitives are
+        better for performance.
+      </p>
+      <h2 id="bits">Bits</h2>
+      <p>
+        A <strong>bit</strong> is a <em>binary digit</em>, which is either
+        <code>0</code> or <code>1</code>. A <strong>byte</strong> is a unit
+        equal to exactly 8 bits. So, a 4-byte number would be 32-bits (8 × 4 =
+        32). A <strong>nibble</strong> is a unit representing half a byte
+        (4-bits). The name <em>nibble</em> is a play on words (half a
+        byte/bite), but the word is rarely used.
+      </p>
+      <p>
+        A <strong>binary number</strong> is a number consisting of only binary
+        digits, in base-2. Different bases, including binary, are covered in
+        <em>Appendix B</em>. A <strong>decimal number</strong> is a number in
+        base-10, and is the most common numbering system. This is not to be
+        confused with a decimal value, such as <code>1.5</code>, which is a
+        <em>real number</em>.
+      </p>
+      <p>
+        The binary number <code>100011</code> is <code>35</code> in decimal. How
+        did 6 digits turn into 2? This is because a decimal number has more
+        information per digit than a binary number. In base-10 each digit can be
+        one of 10 possible values: <code>0, 1, 2, 3, 4, 5, 6, 7, 8, 9</code>.
+        But, in base-2 each digit (bit) can be one of 2 possible values:
+        <code>0, 1</code>. For every digit we can repeatedly multiply by the
+        number of possible values (per digit) to get the total number of
+        possible values for a number of that length. For some familiar examples
+        in base-10, 2 digits gives us <code>10 × 10 = 100</code> values, 3
+        digits gives <code>10 × 10 × 10 = 1000</code> values, 4 digits gives
+        <code>10 × 10 × 10 × 10 = 1000</code> values, and so on. Every digit we
+        add gives us 10 <em>times</em> the number of possible values. When we
+        consider these examples for binary (base-2), we instead have 2 digits
+        gives us <code>2 × 2 = 4</code> values, 3 digits gives
+        <code>2 × 2 × 2 = 8</code>, 4 digits gives
+        <code>2 × 2 × 2 × 2 = 16</code>, and so on. Now each additional digit is
+        giving us 2 <em>times</em> the possible values. We can better express
+        this with exponents, so 4 digits gives us
+        <code>2<sup>4</sup> = 16</code> values, 5 digits gives
+        <code>2<sup>5</sup> = 32</code> values, and so on. This is why we need a
+        lot more digits in base-2 to represent the same value in base-10.
+      </p>
+      <h2 id="integers">Integers</h2>
+      <p>
+        An <strong>integer</strong> is an element of the infinite set
+        <code>{..., -3, -2, -1, 0, 1, 2, 3, ...}</code>. The ellipses
+        (<code>...</code>) indicate the pattern repeats infinitely in that
+        direction. An integer has no fractional component, so
+        <code>1.5</code> is <strong>not</strong> an integer, but 1337 is.
+        Sometimes people will refer to <em>integers</em> as
+        <em>whole numbers</em>, but this is technically incorrect. A
+        <strong>whole number</strong> is an element of the infinite set
+        <code>{0, 1, 2, 3, ...}</code>. Whole numbers have zero, but don&#39;t
+        have negative numbers. Further, a <strong>natural number</strong> is an
+        element of the infinite set <code>{1, 2, 3, ...}</code>.
+      </p>
+      <p>
+        Java has 4 integer primitives. They are <code>byte</code>,
+        <code>short</code>, <code>int</code>, and <code>long</code>. They are
+        8-bit, 16-bit, 32-bit, and 64-bit, respectively. These have very
+        different ranges, as we will soon see. But, since these primitives are
+        actually <em>integers</em>, we also need negative numbers. An
+        <em>unsigned integer</em> is an integer type that does not have negative
+        numbers. A <em>signed integer</em> is an integer type that has negative
+        numbers. All of Java&#39;s integer primitives are <em>signed</em>.
+      </p>
+      <p>
+        When we consider an example using signed numbers, 3-bits still gives 8
+        values, we would have the range <code>[-4, 3]</code>. This is called
+        <em>interval notation</em>, and <code>[-4, 3]</code> means all the
+        numbers <code>-4, -3, -2, -1, 0, 1, 2, 3</code>. 4-bits would give 16
+        values with the range <code>[-8, 7]</code>. Now that we understand some
+        examples, we can view Java&#39;s integer types in the table below.
+      </p>
+      <div class="table-responsive">
+        <table class="table" style="white-space: nowrap">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Size</th>
+              <th>Range (Inclusive)</th>
+              <th>Minimum Value</th>
+              <th>Maximum Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>byte</code></td>
+              <td>8-bit</td>
+              <td>[-2<sup>7</sup>, 2<sup>7</sup> - 1]</td>
+              <td>-128</td>
+              <td>127</td>
+            </tr>
+            <tr>
+              <td><code>short</code></td>
+              <td>16-bit</td>
+              <td>[-2<sup>15</sup>, 2<sup>15</sup> - 1]</td>
+              <td>-32,768</td>
+              <td>32,767</td>
+            </tr>
+            <tr>
+              <td><code>int</code></td>
+              <td>32-bit</td>
+              <td>[-2<sup>31</sup>, 2<sup>31</sup> - 1]</td>
+              <td>-2,147,483,648</td>
+              <td>2,147,483,647</td>
+            </tr>
+            <tr>
+              <td><code>long</code></td>
+              <td>64-bit</td>
+              <td>[-2<sup>63</sup>, 2<sup>63</sup> - 1]</td>
+              <td>-9,223,372,036,854,775,808</td>
+              <td>9,223,372,036,854,775,807</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 id="exactness">Exactness</h3>
+      <p>
+        An important property of integer types is that they are <em>exact</em>.
+        This may seem obvious, but when we talk about floating-point numbers,
+        they are <em>not</em> exact. Since integers are exact, operations like
+        addition and subtraction don&#39;t have any rounding errors or precision
+        problems.
+      </p>
+      <h3 id="choosing-which-type">Choosing Which Type</h3>
+      <p>
+        Based on these ranges, you might be tempted to carefully pick a type
+        that best matches each use-case. For example, choosing to use
+        <code>byte</code> for someone&#39;s age (assuming nobody is older than
+        127). However, choosing like this is rarely the case. It can often lead
+        to future problems (such as when someone turns 128), which can be
+        difficult to change later on. On top of that, <code>byte</code> and
+        <code>short</code> are difficult to work with because performing any
+        operation almost always results in an <code>int</code>. For reasons like
+        these, Java programmers very rarely use <code>byte</code> and
+        <code>short</code>. But, they are sometimes used with arrays (a future
+        topic) to process file or network data. For most things, we are left
+        with choosing between <code>int</code> and <code>long</code>.
+      </p>
+      <p>
+        <code>int</code> is the most widely used integer type in Java. With
+        approximately 2-billion positive values, it works for
+        <em>most</em> things, but not all. You should ask yourself the question,
+        &quot;Could I possibly need more than 2 billion?&quot; If your answer is
+        <em>yes</em> or <em>maybe</em>, use a <code>long</code>. In a video
+        game, currency might be an <code>int</code>, but what if someone plays a
+        lot? For health bars, maybe an enemy boss will have more than 2 billion.
+        While the chance is low, it&#39;s still realistic, so I would use
+        <code>long</code>. Anything that is a small value, like the width and
+        height of your monitor (in pixels), can be an <code>int</code> without
+        issues.
+      </p>
+      <p>
+        A classic example of using <code>int</code> instead of
+        <code>long</code> causing scaling issues was with IPv4. In the early
+        days of developing the internet, we needed a way to uniquely identify
+        each device that was connected: it&#39;s IP address. It seemed like a
+        reasonable assumption at the time that having more than 4 billion (-2 to
+        +2 billion) devices on the internet was unlikely. But several years
+        later, the mistake was felt when we ran out of IPv4 addresses. 64-bit
+        IPv6 was invented, but it was too late. There was no realistic way for
+        <em>everything</em> related to the internet to switch to the new 64-bit
+        standard. So NAT (network address translation) was invented as a
+        workaround to the 32-bit address space.
+      </p>
+      <p>
+        In a large application, if you need uniquely identify someone or
+        something, usually use a <code>long</code> (or something longer).
+        &quot;Better safe than sorry,&quot; as the old adage goes. This
+        regularly applies to databases, where the row ID should usually be
+        <em>at least</em> 64-bit.
+      </p>
+      <h4 id="when-long-isn-t-enough">When long isn&#39;t enough</h4>
+      <p>
+        Maybe 9,223,372,036,854,775,807 is too small. If you still need a fixed
+        length ID, a <code>UUID</code> represents a 128-bit integer. If you need
+        an integer without a specific limit, then <code>BigInteger</code> is the
+        Java class for you. These reference types go beyond the scope of this
+        chapter, but we will see them again.
+      </p>
+      <h3 id="literals">Literals</h3>
+      <p>
+        A literal value is when you <em>literally</em> code in the value. An
+        example usage would be <code>int x = 125;</code>, where
+        <code>125</code> is an <code>int</code> literal.
+      </p>
+      <h4 id="literal-types">Literal Types</h4>
+      <p>
+        When creating an integer literal, it is an <code>int</code> literal by
+        default. There is no way to create a <code>byte</code> or
+        <code>short</code> literal. You can have something that acts like a
+        <code>byte</code> or <code>short</code> literal by assigning a value in
+        the correct range to a variable of that type. Anything outside the range
+        wouldn&#39;t compile. For example,
+      </p>
+      <pre class="bordered java">
+<span class="keyword">byte</span> goodByte = <span class="literal">123</span>; <span class="comment">// In range [-128, 127]</span>
+<span class="keyword">short</span> goodShort = <span class="literal">12345</span>; <span class="comment">// In range [-32768, 32767]</span>
+
+<span class="error"><span class="keyword">byte</span> badByte = <span class="literal">200</span>;</span> <span class="comment">// Error, not in range [128, 127]</span>
+<span class="error"><span class="keyword">short</span> badShort = <span class="literal">54321</span>;</span> <span class="comment">// Error, not in range [-32768, 32767]</span>
+</pre>
+      <p>An example of assigning a literal to each type is below.</p>
+      <pre class="bordered java">
+<span class="keyword">byte</span> a = <span class="literal">1</span>;
+<span class="keyword">short</span> b = <span class="literal">2</span>;
+<span class="keyword">int</span> c = <span class="literal">3</span>;
+<span class="keyword">long</span> d = <span class="literal">4</span>;
+</pre>
+      <h4 id="long-literals">Long Literals</h4>
+      <p>
+        Notice that <code>long d = 4;</code> worked, even though it is actually
+        an <code>int</code> literal. This is because of an
+        <em>implicit widening conversion</em>. We discuss conversions like this
+        towards the end of this section. But if you tried to write
+        <code>long d = 2147483648;</code> this would not compile since
+        <code>2147483648</code> is outside the range of <code>int</code>. In
+        order to have a <em>long literal</em> you must add the letter
+        <code>L</code> or <code>l</code> to the end of the number. Because a
+        lowercase <code>l</code> looks like a <code>1</code>, it is conventional
+        to use a capital <code>L</code>. For example,
+      </p>
+      <pre class="bordered java">
+<span class="keyword">long</span> x = <span class="literal">2147483648L</span>;
+<span class="keyword">long</span> y = <span class="literal">100000000000000L</span>;
+</pre>
+      <h4 id="adding-separators-underscores-">
+        Adding Separators (Underscores)
+      </h4>
+      <p>
+        When you read the literal number <code>100000000000000L</code>, you
+        likely could not tell what it was at first glance, or be able to easily
+        count the zeros. The number is actually 100 trillion. Fortunately, we
+        can add underscores ( <code>_</code> ) <em>between</em> digits. This is
+        usually done every 3 digits, like we do in the real world. Updating our
+        previous examples, we now have:
+      </p>
+      <pre class="bordered java">
+<span class="keyword">long</span> x = <span class="literal">2_147_483_648L</span>;
+<span class="keyword">long</span> y = <span class="literal">100_000_000_000_000L</span>;
+</pre>
+      <h4 id="binary-octal-and-hex-literals">
+        Binary, Octal, and Hex Literals
+      </h4>
+      <p>
+        Unless you purposefully change the base of the literal, it will be a
+        base-10 (decimal) number. This is what you will want in the vast
+        majority of cases. But in some instances it makes more sense to be
+        written in another base. Supported literal bases cover the most widely
+        used bases in computer science, namely base-2 (binary), base-8 (octal),
+        and base-16 (hex). Each base has its own syntax, and follow similar
+        rules. All the literals are still <code>int</code> by default, and in
+        order to make a <code>long</code> literal, you still need to add the
+        <code>L</code>. They are also constrained to the same ranges as base-10
+        literals and follow the same assignment and conversion rules.
+      </p>
+      <p>
+        <strong>Binary literals</strong> start with <code>0b</code> (or
+        <code>0B</code>), followed by zeros and ones, such as
+        <code>0b0001_0010</code>. While the underscores are optional, it is good
+        practice to separate binary literals every 4 digits (one nibble), or
+        sometimes every 8 digits (one byte). Additionally, since underscores
+        must go *between digits*, <code>0b_101</code> would be invalid since it
+        is between a letter and a digit.
+      </p>
+      <p>
+        <strong>Hexadecimal literals</strong> start with <code>0x</code> (or
+        <code>0X</code>), followed by any hex digit (0-9, a-f, A-F). There is no
+        standard saying whether to use lowercase or uppercase hex-digits, so
+        choose whichever. Just don't mix uppercase and lowercase hex in the same
+        literal. For underscores, you don't really need them. If you do add
+        them, space them every 2 or 4 digits. For example,
+        <code>0xABCDEF</code> or <code>0x8000_0000_0000_0000L</code>. Like with
+        binary literals, you cannot add an underscore immediately before or
+        after the <code>x</code>.
+      </p>
+      <p>
+        <strong>Octal literals</strong> start with a <code>0</code> and are
+        followed by at least one octal digit (0-7). That means <code>0</code> is
+        a decimal literal, but <code>00</code> is an octal literal. This is the
+        rarest literal to see, and it also doesn&#39;t have a good pattern to
+        add underscores at. In fact, since there is no letter in the literal,
+        you can add it after the starting <code>0</code>, such as
+        <code>0_1234</code>. Unless you have a very particular usage for it,
+        octal literals are not recommended, and IntelliJ will give you a warning
+        if you use one.
+      </p>
+      <h5>Examples</h5>
+      <pre class="bordered java">
+<span class="comment">// Base-10</span>
+<span class="keyword">int</span> decimal1 = <span class="literal">123</span>;
+<span class="keyword">long</span> decimal2 = <span class="literal">123_456_789_123L</span>;
+
+<span class="comment">// Base-2</span>
+<span class="keyword">int</span> binary1 = <span class="literal">0b0100_0101</span>;
+<span class="keyword">long</span> binary2 = <span class="literal">0b1111_1011_1101_1100_0001_1111_1001_1111_0000_1001L;</span>;
+
+<span class="comment">// Base-16</span>
+<span class="keyword">int</span> hex1 = <span class="literal">0xCAFE_BABE;</span>;
+<span class="keyword">long</span> hex2 = <span class="literal">0x12_34_56_78_90_AB_CD_EFL;</span>;
+
+<span class="comment">// Base-8</span>
+<span class="keyword">int</span> octal1 = <span class="literal">0777;</span>;
+<span class="keyword">long</span> octal2 = <span class="literal">0_0123_4567_0123_4567L;</span>;
+</pre>
+      <h3 id="overflow-and-underflow">Overflow and Underflow</h3>
+      <p>
+        What happens when you exceed the range of an integer type? If you go
+        above the maximum value, an <em>integer overflow</em> occurs. If you go
+        below the minimum value, an <em>integer underflow</em> occurs. These do
+        not cause any errors, but could cause bugs. This is caused by arithmetic
+        operators like addition, subtraction, and multiplication. When a value
+        overflows/underflows, it effectively &quot;wraps around&quot; to the
+        other side. If you exceed the maximum, it continues counting from the
+        minimum. If you go below the minimum, it starting counting down from the
+        maximum. Some examples should better illustrate this.
+      </p>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Input</th>
+              <th>Output</th>
+            </tr>
+          </thead>
+          <tbody style="font-family: monospace; white-space: nowrap">
+            <tr>
+              <td>2147483646 + 1</td>
+              <td>2147483647</td>
+            </tr>
+            <tr>
+              <td>2147483647 + 1</td>
+              <td>-2147483648</td>
+            </tr>
+            <tr>
+              <td>2147483647 + 2</td>
+              <td>-2147483647</td>
+            </tr>
+            <tr>
+              <td>2147483647 + 3</td>
+              <td>-2147483646</td>
+            </tr>
+            <tr>
+              <td>-2147483648 - 1</td>
+              <td>2147483647</td>
+            </tr>
+            <tr>
+              <td>-2147483648 - 2</td>
+              <td>2147483646</td>
+            </tr>
+            <tr>
+              <td>1_000_000_000 + 2_000_000_000</td>
+              <td>-1_294_967_296</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- TODO maybe an interactive javascript app to try inputs/outputs -->
+      <p>
+        This is not as big of an issue if you use longs instead of ints, as they
+        have a much larger range, but it is still possible. Reference types like
+        <code>BigInteger</code> don&#39;t need to worry about overflows, as
+        there is no limit.
+      </p>
+      <h2 id="floating-point-numbers">Floating-Point Numbers</h2>
+      <p>
+        A <strong>floating-point</strong> number is an approximate datatype
+        meant to represent <em>real numbers</em>, but are closer to
+        <em>rational numbers</em>. A <strong>real number</strong> is an integer,
+        rational number, or irrational number. A
+        <strong>rational number</strong>, or fraction, is a number that can be
+        written as <code>a/b</code> where <code>a</code> and <code>b</code> are
+        integers. Rational numbers would include numbers such as <code>0</code>,
+        <code>25</code>, <code>0.5</code>, <code>0.12345</code>, etc.
+      </p>
+      <p>
+        Unlike fractions, which can be decimal points or written as the ratio of
+        2 integers, floating-point numbers are only represented by a
+        <em>fixed</em> number of decimal points (in a specific base). So if a
+        number cannot be <em>exactly</em> represented within that many decimal
+        points (such as a repeating decimal), it will be approximated. For
+        example, if we had a base-10 floating-point number with 4 decimal
+        places, 1/3 would have to be approximated as <code>0.3333</code> (since
+        we only have 4 decimals). Therefore, when we multiply this by 3, we get
+        <code>0.9999</code> instead of <code>1</code>. This means that
+        <em>some</em> floating-point numbers will be approximate, and
+        <em>some</em> floating-point numbers will be exact. Because they
+        <em>could</em> be approximate, <em>never</em> assume a floating-point
+        number is exact.
+      </p>
+      <p>
+        Java has 2 floating-point primitives. These are
+        <code>float</code> (32-bit) and <code>double</code> (64-bit). The name
+        <em>float</em> is short for <em>floating-point</em>. The name
+        <em>double</em> is short for <em>double-precision floating-point</em>,
+        as it has approximately twice the decimal places as <code>float</code>.
+        These are implemented using the <em>IEEE 754</em> standard, which is
+        detailed in <em>Appendix C</em>. In summary, it stores a mantissa
+        (fractional parts), an exponent, and a sign (positive/negative). The
+        number is in base-2 (binary), so the fractions look like 1/2, 1/4, 1/8,
+        1/16, etc. The exponent is a power of 2, to shift the decimal point
+        around. It is like scientific notation. The table below summarizes
+        <code>float</code> and <code>double</code>.
+      </p>
+      <div class="table-responsive">
+        <table class="table" style="white-space: nowrap">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Size</th>
+              <th>Precision (Approx)</th>
+              <th>Smallest</th>
+              <th>Largest</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>float</code></td>
+              <td>32-bit</td>
+              <td>7 digits</td>
+              <td>±1.4 × 10<sup>-45</sup></td>
+              <td>±3.4028235 × 10<sup>38</sup></td>
+            </tr>
+            <tr>
+              <td><code>double</code></td>
+              <td>64-bit</td>
+              <td>15 digits</td>
+              <td>±4.9 × 10<sup>-324</sup></td>
+              <td>±1.7976931348623157 × 10<sup>308</sup></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 id="special-values">Special Values</h3>
+      <p>
+        You may have noticed that the exponent ranges are different for
+        positives and negatives. This is because there are certain reserved
+        exponent-bit combinations. These are for the special values
+        <code>NaN</code>, positive infinity (∞), and negative infinity (-∞).
+      </p>
+      <h4 id="nan">NaN</h4>
+      <p>
+        <code>NaN</code>, which stands for <em>not a number</em>, is a special
+        floating-point value that arises from an undefined operation or value.
+        For example zero divided by zero (floating points), is <code>NaN</code>.
+        The native square root of a negative number (which produces an
+        <em>imaginary number</em>) is <code>NaN</code>. Other undefined
+        operations like (∞ - ∞) can also produce <code>NaN</code>.
+      </p>
+      <p>
+        <code>NaN</code> is a also special because it <em>does not</em> equal
+        anything, not even itself. We will learn about the equality operator
+        (<code>==</code>) in the next chapter.
+      </p>
+      <h4 id="infinity">Infinity</h4>
+      <p>
+        There is a <em>positive infinity</em> and a
+        <em>negative infinity</em> represented by floating-point numbers. These
+        can be produced by exceeding the maximum/minimum range for a
+        floating-point&#39;s exponent, or the result of certain operations. This
+        means there is no overflow/underflow that you would see wrap around with
+        integer types. The term <em>finite</em> refers to a number that is not
+        infinite or <code>NaN</code>.
+      </p>
+      <p>
+        Operations with infinity follow closely with how it would in
+        mathematics:
+      </p>
+      <ul>
+        <li>(𝑥 ÷ 0) is ∞ when 𝑥 is positive.</li>
+        <li>(𝑥 ÷ 0) is -∞ when 𝑥 is negative.</li>
+        <li>(∞ + 𝑥) is ∞ when 𝑥 is finite.</li>
+        <li>(-∞ + 𝑥) is -∞ when 𝑥 is finite.</li>
+        <li>(∞ - ∞) and (∞ + (-∞)) are <code>NaN</code>.</li>
+        <li>((-∞) + ∞) and (-∞ - (-∞)) are <code>NaN</code>.</li>
+      </ul>
+      <p>
+        Other properties of infinity are that ∞ is greater than everything
+        (except itself and <code>NaN</code>), and -∞ is less than everything
+        (except itself and <code>NaN</code>).
+      </p>
+      <h3 id="approximate">Approximate</h3>
+      <p>
+        To emphasize, floating-point values are approximate. A classic example
+        is the following:
+      </p>
+      <pre class="bordered java">
+<span class="comment">// prints 0.30000000000000004</span>
+<span class="class">System</span>.out.<span class="method">println</span>(<span class="literal">0.1</span> + <span class="literal">0.2</span>);
+</pre>
+      <p>
+        This particular example acts like this because <strong>0.1</strong> and
+        <strong>0.2</strong> are repeating decimals in binary (base-2). Finite
+        precision and rounding cause most of these issues. It follows that you
+        should <em>never</em> assume exactness when working with floating-point
+        values (<code>float</code> or <code>double</code>). We will learn about
+        operators in the next chapter, but both arithmetic and comparison
+        operators are unreliable on floats. We can improve this by using a small
+        error factor with absolute values, which we will see in the next
+        chapter.
+      </p>
+      <p>
+        While they are approximate, the bit patterns are exact and
+        deterministic. That is, <code>0.1 + 0.2</code> is <em>always</em>
+        <code>0.30000000000000004</code>. Equality checks will work, but they
+        must be <em>exactly</em> the same. For example,
+      </p>
+      <pre class="bordered java">
+<span class="comment">// prints true</span>
+<span class="class">System</span>.out.<span class="method">println</span>(<span class="literal">0.1</span> + <span class="literal">0.2</span> == <span class="literal">0.30000000000000004</span>);
+</pre>
+      <h3 id="choosing-which-type">Choosing Which Type</h3>
+      <p>
+        Almost always use <code>double</code> because of the increased precision
+        and range. Sometimes, <code>float</code> is used for performance reasons
+        and is still fairly accurate. But in these rare cases, Java
+        shouldn&#39;t be used anyways.
+      </p>
+      <p>
+        You <em>should not</em> use either when you need something exact. The
+        <code>BigDecimal</code> class, which we&#39;ll also learn about later,
+        provides exact values with a near infinite precision, though it cannot
+        store repeating decimals properly. It is also implemented in base-10
+        instead of base-2, so values like <strong>0.1</strong> and
+        <strong>0.2</strong> can be stored exactly, without repeating decimals.
+      </p>
+      <h3 id="literals">Literals</h3>
+      <p>
+        <em>Floating-point literals</em> are created directly in code. They can
+        consist of a whole-number part, a decimal point, a fractional part, an
+        exponent, and a type suffix. There are several combinations that are
+        valid.
+      </p>
+      <p>
+        By default, the type is <code>double</code>. A type suffix can be
+        specified to change this to a <code>float</code>, or explicitly make it
+        a <code>double</code>. Using <code>f</code> or <code>F</code> will
+        create a <em>float literal</em>. And using <code>d</code> or
+        <code>D</code> with explicitly make a <em>double literal</em>. It is
+        preferable to use the lowercase versions <code>d</code> and
+        <code>f</code>. This applies to any of the following ways of writing
+        floating-point literals.
+      </p>
+      <p>
+        Most commonly, a literal will start with digits, have a decimal point,
+        and be followed by digits. For example, <code>2.0</code>,
+        <code>12.5f</code>, and <code>123.456</code>.
+      </p>
+      <p>
+        A number that looks like an integer literal can be explicitly made a
+        double literal by adding <code>d</code>, such as <code>1d</code>. This
+        also applies to numbers outside of the range, such as
+        <code>100000000000000000000000000d</code>. A number can also end with
+        simply a decimal point, such as <code>2.</code>, or <code>2.f</code>.
+      </p>
+      <p>
+        A literal can start with a decimal point and be followed by digits, such
+        as <code>.5</code> or <code>.5f</code>.
+      </p>
+      <p>
+        While not a floating-point literal, you can assign an integer literal to
+        a double or float, such as <code>double d = 1;</code>. We will
+        understand this more when talking about type conversions.
+      </p>
+      <h4 id="using-exponents">Using Exponents</h4>
+      <p>
+        Literals can also be specified with an exponent, which is effectively
+        scientific notation. The only difference is the scalar does not have to
+        be in the range <code>[1, 10)</code>. They consist of a normal literal,
+        followed by <code>e</code> or <code>E</code> and an integer power
+        (positive or negative). For positive powers, the <code>+</code> sign is
+        optional. This creates the number raised to 10<sup>exponent</sup>, so
+        <code>1.5e3</code> is 1.5 × 10<sup>3</sup>. You can also specify digits
+        and then an exponent, such as <code>2e5</code> (2 × 10<sup>5</sup>).
+      </p>
+      <pre class="bordered java">
+<span class="keyword">double</span> a = <span class="literal">1.23e5</span>; <span class="comment">// 1.23 * 10^5 => 123000.0</span>
+<span class="keyword">double</span> b = <span class="literal">12.3e+4</span>; <span class="comment">// 12.3 * 10^4 => 123000.0</span>
+<span class="keyword">double</span> c = <span class="literal">1.23e-5</span>; <span class="comment">// 1.23 * 10^(-5) => 0.0000123</span>
+<span class="keyword">double</span> d = <span class="literal">2e5</span>; <span class="comment">// 2 * 10^5</span>
+<span class="keyword">double</span> e = <span class="literal">.2E5</span>; <span class="comment">// 0.2 * 10^5</span>
+<span class="keyword">double</span> f = <span class="literal">0.2e5</span>; <span class="comment">// 0.2 * 10^5</span>
+<span class="keyword">double</span> g = <span class="literal">-.5e7</span>; <span class="comment">// -(0.5 * 10^7)</span>
+<span class="keyword">double</span> h = <span class="literal">-.5e7d</span>; <span class="comment">// -(0.5 * 10^7)</span>
+<span class="keyword">float</span> i = <span class="literal">1.23e5f</span>; <span class="comment"> // 1.23 * 10^5 => 123000.0</span>
+</pre>
+      <h4 id="hexadecimal-literals">Hexadecimal Literals</h4>
+      <p>
+        It is possible to write a floating-point number in base-16, as well as
+        raise it to a power of 2. This can be done with
+        <code>0x#.#p#</code> where the <code>#.#</code> is a hexadecimal
+        literal, and <code>p#</code> represents multiplication by 2<sup>#</sup>
+        . So <code>0x3.4p5</code> has a base of <code>3 + 4/16</code>, which is
+        3.125, then multiplies this 2<sup>5</sup>, which is
+        <code>3.125 * 32 = 104</code>. The <code>p</code> can also be
+        <code>P</code>, and can still end in a type suffix. I highly recommend
+        you to never use this, and you will never be quizzed on this. But, in
+        the one in a million chance you ever read code with a hexadecimal
+        floating-point literal, you&#39;ll know of it.
+      </p>
+      <!-- float, double, literals, ranges, ieee, .1f -->
+      <h4 id="adding-separators-underscores-">
+        Adding Separators (Underscores)
+      </h4>
+      <p>
+        Similar to integers, you can add underscores between digits to improve
+        readability. A decimal point is not a digit, so it cannot be next to the
+        decimal. An example would be <code>123_456.456_789</code>.
+      </p>
+      <h4 id="rounding">Rounding</h4>
+      <p>
+        If you try to create a floating-point literal with too many digits for
+        its precision, it will compile but be rounded. For example, if you enter
+        <code>123456789.123456789_123456789d</code> it will be rounded to
+        <code>1.2345678912345679E8</code>, which is equal to
+        <code>123456789.12345679d</code>. If there are too many values
+        <em>before</em> a decimal point, the power still remains intact. So
+        <code>100000000000000000000000000005d</code> rounds to
+        <code>1.0E29</code>.
+      </p>
+      <h4 id="examples">Examples</h4>
+      <pre class="bordered java">
+<span class="keyword">float</span> f1 = <span class="literal">2.5f</span>;
+<span class="keyword">double</span> d1 = <span class="literal">43.21</span>;
+<span class="keyword">double</span> d2 = <span class="literal">123.456d</span>;
+<span class="keyword">double</span> d3 = <span class="literal">1_000_000_000_000_000_000.0</span>;
+<span class="keyword">double</span> d4 = <span class="literal">1e50</span>;
+<span class="keyword">double</span> d5 = <span class="literal">1.5e+50</span>;
+<span class="keyword">double</span> d6 = <span class="literal">1.6e-50</span>;
+<span class="keyword">double</span> d7 = <span class="literal">1.</span>;
+<span class="keyword">double</span> d8 = <span class="literal">.1</span>;
+</pre>
+      <h2 id="booleans">Booleans</h2>
+      <p>
+        The simplest of all datatypes in the boolean. A
+        <strong>boolean</strong> is either <em>true</em> or <em>false</em>.
+        These two values are very powerful, while only representing a single bit
+        of information. A value of <code>true</code> represents a bit in the
+        <em>on</em> state - a value of <code>1</code>. A value of
+        <code>false</code> represents a bit in the <em>off</em> state - a value
+        of <code>0</code>. Java does not support writing booleans with 1 and 0,
+        but they are commonly used when discussing booleans. Even though they
+        represent 1-bit, the actual size used is not precisely defined.
+      </p>
+      <p>
+        The boolean type in Java uses the reserved keyword <code>boolean</code>.
+        There are exactly 2 literal values: <code>true</code> and
+        <code>false</code>. Here is an example of each literal:
+      </p>
+      <pre class="bordered java">
+<span class="keyword">boolean</span> on = <span class="keyword">true</span>;
+<span class="keyword">boolean</span> off = <span class="keyword">false</span>;
+</pre>
+      <p>
+        Booleans are not very powerful on their own. They are most commonly used
+        with conditional branching and looping, which are some of the most
+        important things in programming. These topics are covered in a few
+        chapters, so we&#39;ll start using booleans a lot more there.
+      </p>
+      <h2 id="characters">Characters</h2>
+      <p>
+        A <strong>character</strong> is a single letter, digit, symbol, or
+        control code. Characters are encoded as integers using a
+        <em>character set</em> to map an integer to a character. A
+        <em>code point</em> is the integer value of a character. ASCII is a
+        standard character set, represented with 7-bits. ASCII characters are
+        mostly those on a standard US keyboard layout. These cover the Latin
+        alphabet in uppercase and lowercase. For example, the letter
+        <code>A</code> has a code point of <code>65</code>, and a lowercase a
+        has a code point of <code>97</code>. There are also 8-bit extensions of
+        ASCII that maintain the same code points for the original ASCII
+        characters, and add 128 new ones. While extensions like
+        <em>ISO/IEC 8859-1</em> can help with some common Latin script
+        characters (e.g. <code>é</code>), it cannot cover all of them. So some
+        standards were made with over a million code points, and a specific
+        encoding schema. The most well known are <em>UTF-8</em> and
+        <em>UTF-16</em>. UTF-8 uses 8-bit multiples (8, 16, 24, and 32) for
+        encoding, whereas UTF-16 uses 16-bit multiples (16 and 32). Both support
+        the same <em>unicode</em> character set. This includes the basic
+        multilingual plane (BMP) and all unicode characters. UTF-8 is the most
+        widely adopted standard, and uses less memory to encode text consisting
+        of mostly ASCII characters.
+      </p>
+      <p>
+        You can view a full list of 7-bit ASCII and an extended 8-bit ASCII
+        charset <a href="https://www.ascii-code.com/" target="_blank">here</a>.
+      </p>
+      <p>
+        Java has a single character type named <code>char</code>. A
+        <code>char</code> is a 16-bit UTF-16 encoded character. This means that
+        32-bit UTF-16 characters (surrogate pairs) cannot be encoded within a
+        single <code>char</code>. When we learn about Strings in the next
+        section, these surrogates can we used inside literals, but char literals
+        only support 16-bit characters. Since a <code>char</code> has to map to
+        a code point, and code points are unsigned, a <code>char</code> is
+        actually an <em>unsigned integer</em> with an inclusive range of
+        <code>0</code> to <code>65535</code>.
+      </p>
+      <h3 id="literals">Literals</h3>
+      <p>
+        A <strong>character literal</strong> is enclosed by matching
+        single-quotes, such as <code>&#39;A&#39;</code>. The character literal
+        cannot be a 32-bit surrogate, but anything with a 16-bit codepoint is
+        fine. While not a character literal, you can assign an int literal to a
+        char, provided its in the range of <code>[0, 65535]</code>, such as
+        <code>char c = 64000;</code>
+      </p>
+      <h4 id="escape-sequences">Escape Sequences</h4>
+      <p>
+        Escape sequences allow you to represent a literal character that would
+        otherwise be invalid. Some of these for whitespaces were shown in the
+        last chapter. Like a normal character literal, they need to be in single
+        quotes, such as <code>char c = &#39;\n&#39;;</code>.
+        <!-- TODO table -->
+      </p>
+      <ul>
+        <li><code>\b</code> backspace</li>
+        <li><code>\s</code> space</li>
+        <li><code>\t</code> tab</li>
+        <li><code>\n</code> newline</li>
+        <li><code>\f</code> form feed</li>
+        <li><code>\&quot;</code> double quote</li>
+        <li><code>\&#39;</code> single quote</li>
+        <li><code>\\</code> backslash</li>
+      </ul>
+      <p>
+        For <code>char</code>, the <code>\&quot;</code> double quote does not
+        need to be escaped. It could be
+        <code>char doubleQuote = &#39;&quot;&#39;;</code>. Also, an
+        <em>empty string</em> is not allowed.
+      </p>
+      <h4 id="hexadecimal-unicode-escapes">Hexadecimal Unicode Escapes</h4>
+      <p>
+        You can encode the character&#39;s code point directly using its
+        hexadecimal value. This starts with <code>\u</code> and is followed by
+        exactly 4 hex-digits. For example, <code>&#39;\u7D02&#39;</code>, which
+        would be the same as <code>&#39;紂&#39;</code>.
+      </p>
+      <h4 id="examples">Examples</h4>
+      <pre class="bordered java">
+<span class="keyword">char</span> a1 = <span class="string">'a'</span>; <span class="comment">// code point 97</span>
+<span class="keyword">char</span> a2 = <span class="literal">97</span>; <span class="comment">// code point 97</span>
+<span class="keyword">char</span> b = <span class="string">'b'</span>; <span class="comment">// code point 98</span>
+<span class="keyword">char</span> space1 = <span class="string">'<span class="string-esc">\s</span>'</span>;
+<span class="keyword">char</span> space2 = <span class="string">' '</span>;
+<span class="keyword">char</span> newline = <span class="string">'<span class="string-esc">\n</span>'</span>;
+<span class="keyword">char</span> doubleQuote1 = <span class="string">'"'</span>;
+<span class="keyword">char</span> doubleQuote2 = <span class="string">'<span class="string-esc">\"</span>'</span>;
+<span class="keyword">char</span> singleQuote = <span class="string">'<span class="string-esc">\'</span>'</span>;
+<span class="keyword">char</span> backslash = <span class="string">'<span class="string-esc">\\</span>'</span>;
+<span class="comment">// cjk stands for "chinese, japanese, and korean"</span>
+<span class="keyword">char</span> cjk1 = <span class="string">'<span class="string-esc">\u811A</span>'</span>; <span class="comment">// code point 33050</span>
+<span class="keyword">char</span> cjk2 = <span class="string">'脚'</span>; <span class="comment">// code point 33050</span>
+</pre>
+      <h2 id="type-conversions">Type Conversions</h2>
+      <p>
+        When working with primitive datatypes, you can convert between all
+        primitives except <code>boolean</code>. Sometimes this happens
+        automatically (implicit), and other times manually (explicit).
+      </p>
+      <h3 id="casting">Casting</h3>
+      <p>
+        The way to explicitly convert primitive types is through casting. A
+        <em>type cast</em> converts one type to another. The
+        <em>cast operator</em> is the target type enclosed by parenthesis. For
+        example, <code>int x = (int) 3_000_000_000L;</code>.
+      </p>
+      <p>
+        Depending on the original type and the target type, you might need to
+        explicitly cast it. In general, if the target type can hold bigger
+        numbers, it can be implicitly cast. The figure below shows the rules for
+        implicit type casting. If there is an arrow connecting one type to
+        another, it can be implicitly cast. Otherwise, it must be explicitly
+        cast. For example, <code>int</code> can be implicitly cast to
+        <code>double</code>, but cannot be cast to <code>byte</code>.
+      </p>
+      <div class="d-flex justify-content-center align-items-center p-3">
+        <img
+          src="./img/typecast_light.png"
+          alt="Uninitialized variable box"
+          style="max-width: 95%"
+        />
+      </div>
+      <h3 id="implicit">Implicit</h3>
+      <p>
+        An <em>implicit type conversion</em> is one that happens automatically,
+        without the need for a type cast. This happens as an
+        <em>implicit widening conversion</em>. The term <em>widening</em> means
+        that the target type can store more data than the source. For example,
+        if you took <code>100_000_000</code> as an <code>int</code>, you could
+        directly assign this to <code>long</code>, since a <code>long</code> can
+        hold anything an <code>int</code> can, plus more. You may still perform
+        an explicit cast it to show intent, but you don't <em>need</em> to.
+      </p>
+      <h3 id="explicit">Explicit</h3>
+      <p>
+        An <em>explicit type conversion</em> is done manually with the cast
+        operator. This is required for types going through a
+        <em>narrowing conversion</em>. This means the target type is smaller
+        than the source, so you may lose data. Consider casting
+        <code>long</code> value of 100 billion into an <code>int</code>, which
+        can store approximately 2 billion. The resulting <code>int</code> will
+        have lost data. The truncation happens following the rules of integer
+        overflow/underflow.
+      </p>
+      <h3 id="floating-point-to-integer">Floating-point to Integer</h3>
+      <p>
+        An important cast to understand is what happens to floating-point
+        numbers when they are cast into an integer type. If the value is in the
+        integer type&#39;s range, such as <code>5.3</code>, then the result will
+        be truncation after the decimal point. <code>5.3</code> will be
+        truncated to <code>5</code>, and <code>5.999</code> will also be
+        truncated to <code>5</code>. Everything gets rounded
+        <em>towards</em> zero. If a value exceeds the integer's range, including
+        infinity, it will cast as the minumum or maximum value for that type. So
+        <code>(byte) 1000.0</code> will become <code>127</code>, and
+        <code>(byte) -1000.0</code> results in <code>-128</code>. For
+        <code>NaN</code>, the result is <code>0</code>.
+      </p>
+      <h3 id="type-promotions">Type Promotions</h3>
+      <p>
+        In general, operators on primitive types will result in the widest type
+        of the operands, starting from <code>int</code>. This is why adding two
+        <code>byte</code> values results in an <code>int</code>. If you add an
+        <code>int</code> and <code>long</code>, the result is a
+        <code>long</code>. A <code>short</code> and <code>float</code> will
+        result in <code>float</code>. Adding an <code>int</code> and
+        <code>double</code> will result in a <code>double</code>. Any type that
+        is narrower than the result will be promoted to the resulting type
+        before the operation is performed.
+      </p>
+      <h2 id="summary">Summary</h2>
+      <p>
+        This was a lot of information to take in, and I don&#39;t expect you to
+        have remembered it all. This is a section you can revisit later on, such
+        as if you forget how to write a hexadecimal integer literal. But there
+        are some key takeaways you should remember:
+      </p>
+      <ul>
+        <li>Integers are exact data types.</li>
+        <li>Integers can overflow their values.</li>
+        <li>Floating-points are approximate data types.</li>
+        <li>
+          Floating-points do not overflow, but have positive and negative
+          infinity.
+        </li>
+        <li>Booleans are mostly used in conditionals and loops.</li>
+        <li>
+          <code>BigInteger</code> and <code>BigDecimal</code> can be useful when
+          primitives aren&#39;t enough.
+        </li>
+        <li>
+          Literal type suffixes are <code>d</code> for double,
+          <code>f</code> for float, and <code>L</code> for long.
+        </li>
+        <li>Underscores can improve number readability.</li>
+        <li>Characters are UTF-16.</li>
+        <li>
+          Certain characters, such as backslash and single-quote, need to be
+          escaped.
+        </li>
+        <li>Types can implicitly widen, but are explicitly narrowed.</li>
+        <li>
+          Casting a floating-point to an integer truncates the decimal point.
+        </li>
+      </ul>
     </main>
 
     <script

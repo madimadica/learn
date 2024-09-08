@@ -5,7 +5,8 @@
     --pre-method: #4078F3;
     --pre-class: #7D00FF;
     --pre-comment: #808080;
-    --pre-string: #289300;
+    --pre-string: #0fb40f;
+    --pre-string-esc: #1782fc;
     --pre-literal: #EF6B8F;
     --pre-error: red;
 }
@@ -32,6 +33,9 @@ pre.java {
     }
     & .string {
         color: var(--pre-string);
+    }
+    & .string-esc {
+        color: var(--pre-string-esc);
     }
     & .literal {
         color: var(--pre-literal);
