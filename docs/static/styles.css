@@ -17,6 +17,11 @@ code {
     color: var(--madi-hot-pink);
 }
 
+a {
+    color: var(--madi-hot-pink);
+}
+
+
 /*
 .hljs-link {
     text-decoration: underline
