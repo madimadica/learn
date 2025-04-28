@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Section 3.1: Variables</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+
+<body>
+<header>
+  <nav id="madimadica-navbar">
+    <div class="container-fluid splitter">
+      <a class="home-link" href="/">
+        <img src="/static/brand.png" alt="main-icon" />
+      </a>
+      <div class="other-links-wide">
+        <div class="other-link">
+          <a href="/java-intro/">Introduction to Java</a>
+        </div>
+        <div class="other-link">
+          <a href="/advanced-java/">Advanced Java</a>
+        </div>
+      </div>
+      <div id="other-links-narrow">
+        All eBooks
+        <i id="other-links-down" class="bi bi-chevron-down"></i>
+        <i id="other-links-up" class="bi bi-chevron-up"></i>
+        <ul>
+          <li><a href="/java-intro/">Introduction to Java</a></li>
+          <li><a href="/advanced-java/">Advanced Java</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<nav id="bottom-page-nav"><a
+  aria-keyshortcuts="Left"
+  aria-label="Previous page"
+  class="prev-link"
+  href="/java-intro/variables-and-types/index.html"
+  rel="prev"
+  title="Chapter 3: Variables and Data Types"
+>
+  <i class="bi bi-chevron-left"></i>
+</a>
+<a
+  aria-keyshortcuts="Right"
+  aria-label="Next page"
+  class="next-link"
+  href="/java-intro/variables-and-types/primitive-data-types.html"
+  rel="next"
+  title="3.2 Primitive Data Types"
+>
+  <i class="bi bi-chevron-right"></i>
+</a>
+</nav>
+<main class="container">
+<h1>3.1 Variables</h1>
+<p>A <strong>variable</strong> is a named location that stores a value inside a program. In Java, variables must have a <em>name</em> and a <em>type</em>. A <strong>type</strong>, or <em>datatype</em>, is the type of data a variable is <em>allowed</em> to hold. This could be a piece of text, a number, a picture, or nearly anything else. In the following sections, we will study what some of these types actually are in Java. But in this section we will use two common types - <code>int</code> and <code>double</code>. Sometimes a variable name is referred to as an <em>identifier</em>. But not all identifiers are variables; identifiers can also be method or class names. So we will call them variables unless referring to identifiers in general.</p>
+<p>Neither the type nor the name of a variable can be changed once it is created. The only part that can <em>vary</em> is the value, hence <em>variable</em>.</p>
+<p>Throughout this chapter, we will use an analogy of a storaage box. On the outside, we must write the name and datatype on it with a permanent marker. Here, the datatype is in parentheses.</p>
+<div class="d-flex img-wrapper justify-content-center align-items-center pb-4 size-std"><img src="/java-intro/variables-and-types/img/var_box.png" alt="Variable box" /></div>
+<p>On the inside, we will have a piece of paper with a value. If we want to change the value of the variable (box), we <em>replace</em> the paper value with a new one, throwing away the original. When we <em>assign</em> a value to the variable (box), the piece of paper on the inside is the only thing that changes, the outside will <em>always</em> stay the same.</p>
+<h2>Declaration</h2>
+<p>A <strong>variable declaration</strong> is a programming statement that <em>declares</em> a variable with a name and a type, but no value. This would be like grabbing a new box and writing the name and type on it. When just declaring a variable, there is no paper/value inside. This is called an <strong>uninitialized variable</strong>.</p>
+<div class="d-flex img-wrapper justify-content-center align-items-center pb-4 size-std"><img src="/java-intro/variables-and-types/img/box_uninitialized.png" alt="Variable box uninitialized" /></div>
+<p>The general form of a declaration is <code>DataType variableName;</code>. For example,</p>
+<div class="d-flex img-wrapper pb-2 size-20"><img src="/java-intro/variables-and-types/img/declaration.png" alt="Variable declation form" /></div>
+<p>When a variable is declared, it <strong>cannot</strong> be used until it is <em>initialized</em>. For this reason, it is uncommon to declare a variable without initializing it at the same time.</p>
+<h2>Initialization</h2>
+<p>A <strong>variable initialization</strong> is a programming statement that initializes the value of a variable. The initial value must be the same datatype as the variable, or compatible with the type. We will see more on compatibility in the next section. In order to initialize a variable, we use the <em>assignment operator</em>, which is a single equal sign <code>=</code>.</p>
+<pre><code class="language-java">double total; // Declare
+total = 12.98; // Initialize
+</code></pre>
+<p>However, the above code is very rare. Instead, programmers usually declare <em>and</em> initialize a variable in the same statement:</p>
+<pre><code class="language-java">// Declare and initialize
+double total = 12.98;
+</code></pre>
+<p>The general form of a variable initialization is <code>DataType variableName = initialValue;</code>, and is better illustrated here:</p>
+<div class="d-flex img-wrapper pb-2 size-32"><img src="/java-intro/variables-and-types/img/init.png" alt="Variable initialization form" /></div>
+<p>In our box analogy, this would be like putting this piece of paper inside the box labeled by <strong>total</strong>:</p>
+<div class="d-flex img-wrapper justify-content-center align-items-center pb-3 size-std"><img src="/java-intro/variables-and-types/img/box_double.png" alt="Variable box with value" /></div>
+<p>Variables can be initialized to more than just a constant. Often times, the value is the <em>result</em> of an expression. For example:</p>
+<pre><code class="language-java">// Declare and initialize
+double diameter = radius * 2;
+</code></pre>
+<p>Here, the <code>diameter</code> is initialized to <em>twice</em> the value of <code>radius</code>. So, if <code>radius</code> had a value of <code>5</code>, then <code>diameter</code> would be the result of <code>5 * 2</code>, which is <code>10</code>. Whenever we use the variable <code>diameter</code>, it does not recompute <code>radius * 2</code>. Instead, the result of the expression is the value that gets stored. As such, if we later assigned <code>radius = 7;</code>, then diameter would still be <code>10</code>.</p>
+<pre><code class="language-java">double radius = 5;
+double diameter = radius * 2;
+System.out.println(radius); // 5
+System.out.println(diameter); // 10
+
+radius = 7; // Update radius
+System.out.println(radius); // 7
+System.out.println(diameter); // 10
+</code></pre>
+<p>Methods can be used as parts of initialization expressions, too, and we'll learn more about those in a @section3.3.</p>
+<h2>Static typing</h2>
+<p>Java is a <strong>statically-typed</strong> langauge, also called <em>strongly typed</em>. This means that all variables have a datatype and the value <em>must</em> be compatible with the type. This typing also determines what the allowed operations are for that type (operators are in @chapter4). Any type violations, such as storing text in a number, will cause a compilation error.</p>
+<h2>Using a variable</h2>
+<p>A variable is used anytime its value is accessed or copied. This is done by using the variable's name. Uninitialized variables <em>cannot</em> be used, and will cause a compilation error if you try. Note that a variable can be used multiple times, or not at all (which will likely show warning in your IDE).</p>
+<p>In <code>System.out.println(radius);</code> we are <em>using</em> the <code>radius</code> variable. Almost every variable or expression can be printed with <code>print</code> and <code>println</code>. Variables can also be used in expressions, such as <code>radius * 2</code>. This expression reads the value from radius (by opening &quot;the box&quot;), and multiplies it by 2. We can print the result of this expression with <code>System.out.println(radius * 2);</code>.</p>
+<h2>Assignment</h2>
+<p>An important part about variables is that they can <em>vary</em>. A variable can be assigned to a value with a compatible type using the assignment operator <code>=</code>. The value can be a literal or an expression. Here are some examples:</p>
+<pre><code class="language-java">// literal
+int x = 5;
+
+// result of an expression
+int y = x;
+
+// result of an expression
+int z = x + 2;
+</code></pre>
+<h3>Reassignment</h3>
+<p>Often times, you want to <em>update</em> the value of a variable after it has been initialized. This is called <strong>reassignment</strong>. The simplest form would be <code>variableName = newValue;</code>. Notice that the datatype is not declared again. Datatypes are only part of a variable declaration. When you reassign a variable, whatever data it previously stored is gone forever (unless you stored a copy in another variable beforehand). This is like replacing the paper in our box analogy.</p>
+<p>An example of reassignment is below:</p>
+<pre><code class="language-java">int x = 5;
+System.out.println(x); // 5
+x = 4;
+System.out.println(x); // 4
+</code></pre>
+<h3>Copying</h3>
+<p>When you assign a variable the value of another variable, it copies the value. In the box analogy, this would be like photocopying the paper in the original box, and placing the copy in the other box. After the value has been copied, anything that happens to either variable (box) is independent of the other. For example,</p>
+<pre><code class="language-java">int x = 5;
+int y = x; // store a copy of x, which is 5
+x = 1 // updates x only
+System.out.println(x); // 1
+System.out.println(y); // 5
+</code></pre>
+<p><code>y</code> was assigned a copy of <code>x</code>, which stored the value <code>5</code> at the time. These are two separate boxes, so when we say <code>x = 1;</code>, only x's box is updated. Therefore, when we print <code>y</code>, the original copy of <code>5</code> is still stored.</p>
+<h3>Chained assignments</h3>
+<p>Every so often, you will want to assign the same value to <em>multiple</em> variables. You can do this by chaining the assignment operator. Suppose you have a few variables holding counts of different things, and you want reset all of them to zero. Assuming all these variables are already declared (or initialized), you can write</p>
+<pre><code class="language-java">appleCount = orangeCount = bananaCount = 0;
+</code></pre>
+<p>This will only evaluate the expression on the right side <em>once</em>. In this example, <code>0</code> is assigned to <code>bananaCount</code>, then <code>bananaCount</code> is copied into <code>orangeCount</code>, and finally <code>orangeCount</code> is copied into <code>appleCount</code>. This is not used very often, but can occasionally simplify a few lines of code. The longer way of doing the previous block of code would be:</p>
+<pre><code class="language-java">appleCount = 0;
+orangeCount = 0;
+bananaCount = 0;
+</code></pre>
+<h3>Multiple declarations and initializations</h3>
+<p>It is possible to declare multiple variables in a single statement. While I strongly discourage you from using this, I am still presenting it so that you can read any code that does it. This can be done with a comma-separated list of variables, all holding the same type. For example,</p>
+<pre><code class="language-java">// Declare 3 double variables
+double x, y, z;
+</code></pre>
+<pre><code class="language-java">// Declare and initialize 3 double variables
+double x = 0, y = 1.5, z = 72.5;
+</code></pre>
+<pre><code class="language-java">// Declare and initialize some of the variables
+double x, y = 1.5, z;
+</code></pre>
+<p>As you can see, once variable initializations are added, the readability diminishes. It is not <em>that</em> bad for simply declaring variables, but ultimately you will have to initialize them such as:</p>
+<pre><code class="language-java">// Declare 3 double variables, then initialize
+double x, y, z;
+x = 0;
+y = 1.5;
+z = 72.5;
+</code></pre>
+<p>And at this point, you might as well have just done the normal way:</p>
+<pre><code class="language-java">// Directly initialize 3 double variables
+double x = 0;
+double y = 1.5;
+double z = 72.5;
+</code></pre>
+<h2>Naming</h2>
+<p>The two hardest things in computer science are <em>cache invalidation</em> and <em>naming things</em>. This is a historical joke, but is accurate in a philosophical sense. For now, we will only look at one of them: naming things.</p>
+<p>There are two main things to worry about: what we <em>could</em> name something, and what we <em>should</em> name something. The hard part is what you <em>should</em> name something, as the grammar of the language restricts what you could name it.</p>
+<p>There are an infinite number of names you could choose, but which one would be the best? Would it be better to use <code>numberOfUsers</code>, <code>userCount</code>, or <code>totalUsers</code>? In this example, these are all good choices, but there will be other times when pinpointing a descriptive name is much trickier.</p>
+<p>An important note is that variable names cannot be reused within the same <em>scope</em>. We will start to see scopes in @chapter6, but we have only used the scope of the <code>main</code> thus far. This means that all your variable names inside <code>main</code> must be unique. Fortunately, each method gets its own new scope, effectively resetting the used variable names, or else we'd have a <em>really</em> hard time naming things.</p>
+<h3>Allowed Names</h3>
+<p>An allowed name is what Java allows us to use - what we <em>could</em> use. Remember that Java is case-sensitive, so <code>Total</code> would be a different variable than <code>total</code>. Here are the naming rules:</p>
+<ul>
+<li>Cannot have whitespace.</li>
+<li>Must start with a letter, <code>$</code> (dollar-sign), or <code>_</code> (underscore).</li>
+<li>Subsequent characters can be letters, numbers, <code>$</code>, and <code>_</code>.</li>
+<li>Cannot be a reserved keyword.</li>
+<li>Can be context-sensitive keywords.</li>
+<li>Cannot be <code>true</code>, <code>false</code>, or <code>null</code>, as these are literals.</li>
+</ul>
+<h4>Reserved Keywords</h4>
+<p><strong>Reserved keywords</strong>, commonly called <em>keywords</em>, are special tokens that <em>cannot</em> be used as an identifier. Some keywords that we have already seen are <code>public</code>, <code>static</code>, <code>void</code>, and <code>class</code>. A table listing all the reserved keywords is below. You do not need to memorize them. We will slowly learn about the different keywords when we cover their respective topics, 8 of which are in the next section. Besides, most of them wouldn't even be good variable names.</p>
+<div class="table-responsive">
+<table class="table" style="font-family: monospace">
+<tbody>
+  <tr>
+    <td>abstract</td>
+    <td>continue</td>
+    <td>for</td>
+    <td>new</td>
+    <td>switch</td>
+  </tr>
+  <tr>
+    <td>assert</td>
+    <td>default</td>
+    <td>if</td>
+    <td>package</td>
+    <td>synchronized</td>
+  </tr>
+  <tr>
+    <td>boolean</td>
+    <td>do</td>
+    <td>goto</td>
+    <td>private</td>
+    <td>this</td>
+  </tr>
+  <tr>
+    <td>break</td>
+    <td>double</td>
+    <td>implements</td>
+    <td>protected</td>
+    <td>throw</td>
+  </tr>
+  <tr>
+    <td>byte</td>
+    <td>else</td>
+    <td>import</td>
+    <td>public</td>
+    <td>throws</td>
+  </tr>
+  <tr>
+    <td>case</td>
+    <td>enum</td>
+    <td>instanceof</td>
+    <td>return</td>
+    <td>transient</td>
+  </tr>
+  <tr>
+    <td>catch</td>
+    <td>extends</td>
+    <td>int</td>
+    <td>short</td>
+    <td>try</td>
+  </tr>
+  <tr>
+    <td>char</td>
+    <td>final</td>
+    <td>interface</td>
+    <td>static</td>
+    <td>void</td>
+  </tr>
+  <tr>
+    <td>class</td>
+    <td>finally</td>
+    <td>long</td>
+    <td>strictfp</td>
+    <td>volatile</td>
+  </tr>
+  <tr>
+    <td>const</td>
+    <td>float</td>
+    <td>native</td>
+    <td>super</td>
+    <td>while</td>
+  </tr>
+  <tr>
+    <td>_ (underscore)</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+</div>
+<h4>Contextual Keywords</h4>
+<p><strong>Contextual keywords</strong> are keywords that are only reserved in certain situations. Most of these keywords were only added to newer versions of Java, so if they were fully reserved, old Java code using these keywords as variables wouldn't compile. So, contextual keywords were added to help with forwards-compatibility, meaning old code should still work on newer versions.</p>
+<div class="table-responsive">
+<table class="table" style="font-family: monospace">
+<tbody>
+  <tr>
+    <td>exports</td>
+    <td>opens</td>
+    <td>requires</td>
+    <td>uses</td>
+    <td>yield</td>
+  </tr>
+  <tr>
+    <td>module</td>
+    <td>permits</td>
+    <td>sealed</td>
+    <td>var</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>non-sealed</td>
+    <td>provides</td>
+    <td>to</td>
+    <td>when</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>open</td>
+    <td>record</td>
+    <td>transitive</td>
+    <td>with</td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+</div>
+<h3>Java Variable Naming Conventions</h3>
+<p>Now that we know what we <em>could</em> name a variable, lets discuss how you <em>should</em> (or shouldn't) name something. These rules are called <strong>naming conventions</strong>, and they help to keep Java source code consistent. That way, any Java developer could join any project and wouldn't have to learn a new set of rules, or would be able to read other developers code more easily. Most programming languages have well-established conventions, not just Java. The standard variable naming conventions in Java are as follows:</p>
+<ul>
+<li>Use lower camel-case.</li>
+<li>Do not use a <code>$</code> in variable names.</li>
+<li>Do not use <code>_</code> in variable names (except constants).</li>
+<li>Do not use any context-sensitive keywords as variable names.</li>
+</ul>
+<p>In addition to the standard rules, there are also some common naming recommendations. Avoid using abbreviations and acronyms unless they are very well-known, such as HTML, GUI, or ID. This would also include avoiding <code>no</code> or <code>num</code> instead of <code>number</code>.</p>
+<h4>Camel Case</h4>
+<p><strong>Lower camel-case</strong>, or simply <em>camel-case</em>, is a naming convention to combine multiple words into a single identifier (which cannot have spaces). It is defined by starting with a lowercase letter, and then the first letter of each subsequent word capitalized. In the end, the identifier somewhat resembles the humps on a camel's back. This is best described with some examples:</p>
+<div class="table-responsive">
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Phrase</th>
+      <th>Lower camel-case</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>number of users</td>
+      <td style="font-family: monospace">numberOfUsers</td>
+    </tr>
+    <tr>
+      <td>total price</td>
+      <td style="font-family: monospace">totalPrice</td>
+    </tr>
+    <tr>
+      <td>count</td>
+      <td style="font-family: monospace">count</td>
+    </tr>
+    <tr>
+      <td>subscription tier</td>
+      <td style="font-family: monospace">subscriptionTier</td>
+    </tr>
+    <tr>
+      <td>average rainfall</td>
+      <td style="font-family: monospace">averageRainfall</td>
+    </tr>
+    <tr>
+      <td>ID</td>
+      <td style="font-family: monospace">id</td>
+    </tr>
+    <tr>
+      <td>favorite TV show</td>
+      <td style="font-family: monospace">favoriteTvShow</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+</main>
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"
+></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/static/functions.js"></script>
+
+</body>
+</html>

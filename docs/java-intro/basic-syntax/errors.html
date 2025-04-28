@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Section 2.6: Errors</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+
+<body>
+<header>
+  <nav id="madimadica-navbar">
+    <div class="container-fluid splitter">
+      <a class="home-link" href="/">
+        <img src="/static/brand.png" alt="main-icon" />
+      </a>
+      <div class="other-links-wide">
+        <div class="other-link">
+          <a href="/java-intro/">Introduction to Java</a>
+        </div>
+        <div class="other-link">
+          <a href="/advanced-java/">Advanced Java</a>
+        </div>
+      </div>
+      <div id="other-links-narrow">
+        All eBooks
+        <i id="other-links-down" class="bi bi-chevron-down"></i>
+        <i id="other-links-up" class="bi bi-chevron-up"></i>
+        <ul>
+          <li><a href="/java-intro/">Introduction to Java</a></li>
+          <li><a href="/advanced-java/">Advanced Java</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<nav id="bottom-page-nav"><a
+  aria-keyshortcuts="Left"
+  aria-label="Previous page"
+  class="prev-link"
+  href="/java-intro/basic-syntax/case-sensitivity.html"
+  rel="prev"
+  title="2.5 Case Sensitivity"
+>
+  <i class="bi bi-chevron-left"></i>
+</a>
+<a
+  aria-keyshortcuts="Right"
+  aria-label="Next page"
+  class="next-link"
+  href="/java-intro/variables-and-types/index.html"
+  rel="next"
+  title="Chapter 3: Variables and Data Types"
+>
+  <i class="bi bi-chevron-right"></i>
+</a>
+</nav>
+<main class="container">
+<h1>2.6 Errors</h1>
+<p>Nobody is perfect and errors will inevitably occur. There are a couple different ways errors can appear, and some ways to prevent them. Errors are a natural part of programming, and if you haven't experienced any, you will. But don't feel bad, making mistakes and correcting them is a big part of the learning process. Don't immediately give up and search the internet or ask an AI for help, you'd only be taking the learning experience away from yourself. When you identify and correct a mistake, you are much less likely to make it again.</p>
+<h2>Compile-Time Errors</h2>
+<p><strong>Compile-time errors</strong> are the best. Why? Because they happen very early into development and can be quickly identified and fixed. There are several ways compile-time errors can occur, and all of them should contain an informative error message explaining <em>what</em> went wrong and <em>where</em>.</p>
+<p>A <strong>syntax-error</strong> is an error in how the language is used - the source code does not match the grammar. This could be as simple as a missing semicolon. It could be that you used single-quotes instead of double-quotes in <code>'hello world'</code>. Maybe you didn't use any quotes and tried to call <code>System.out.println(hello world);</code>. The compiler doesn't know what you're trying to do.</p>
+<p>Another type of compile-time error is a missing symbol. Maybe you tried to call <code>System.out.printline()</code>, but <code>printline()</code> cannot be found. In this case, the compiler knows that you are trying to invoke a method, but it does not exist where you said it did. Similarly, you could be trying to use a variable that doesn't exist. For example, you tried to print <code>total</code>, but the variable was actually named <code>sum</code>.</p>
+<p>One really important compile-time error is when you have a type-error. Since Java is a strongly typed language, all types need to be compatible. As you continue learning, this will make more sense. But, as an example, if you tried to store <code>&quot;hello world&quot;</code> (a text String) into an <code>int</code> (a number), these would be incompatible types and not compile.</p>
+<p>With a compile-time error, your program never even gets the <em>chance</em> to run. You must fix all the compilation errors and try [to compile] again.</p>
+<p>IDEs like IntelliJ can detect any compile-time errors before you try to run the program. There will be a strong visual cue, such as a red-squiggly line under the error. This allows you to quickly spot and correct errors. If I were to forget a semicolon, I can immediately notice the red-squiggly and add one. If it's something more than a missing semicolon, you might have to hover over it and see the error message tooltip. As you begin to identify and correct these errors, you will quickly reinforce your brain and know what error you made without looking at the message.</p>
+<h2>Runtime Errors</h2>
+<p><strong>Runtime-errors</strong> are almost the worst. They are more generally called <em>bugs</em>. Unlike compile-time errors, there is nothing stopping you compiling and running a program that could produce a runtime error. You will only find it after the program runs into the error (hence, runtime). Additionally, that path of code may not even execute, or if it does then it might not be in the correct state to produce the error. Examples include a missing file, a network connection issue, or the dreaded <em>null-pointer exception</em> (NPE). Unhandled errors will cause your program to crash - there is no recovering unless is gets caught/handled (@chapter).</p>
+<p>One example we can see right now would be with <code>System.out.println(1 / 0);</code>. This produces a division by zero error. For obvious errors like this, IntelliJ will give you warning about them (usually with a yellow-squiggly).</p>
+<p>Other errors, such as a missing file, are likely enough that the programmer is forced to handle them in some way. Most runtime errors are like this, as the others are much more preventable (such as not dividing by zero, but you can't guarantee the internet is connected). We will learn more about runtime errors (Exceptions), and ways to handle them, in @chapter.</p>
+<h2>Logic Errors</h2>
+<p><strong>Logic errors</strong> do not cause compilation or fatal runtime errors, but cause incorrect outputs. This is the category where most bugs live. They cause issues with the program, but it continues executing. Two of the most common logic errors are <code>off-by-one errors</code>.</p>
+<p>Suppose you were supposed to sort usernames in alphabetical order (case-insensitive), but you accidentally sorted it with case-sensitivity. Everything compiled and executed fine on your first try: <code>Bravo, Charlie, Delta</code>. Then, the next day you load the results and see <code>Bravo, Charlie, Delta, alpha</code>. Now you notice that there is a bug using case-sensitivity. Sometimes you may (jokingly) call this a <em>feature</em>, but in our example it is definitely a bug. Moreover, we didn't even know about it until the dataset changed, <em>and</em> we happened to view it again. How many other hidden bugs are there?</p>
+<p>This is why I would consider logic errors to be <em>the worst</em>. At least with a runtime error you know something went wrong, and approximately where. But, with a logic error, you need to use your best judgement and intuition to find the root-cause. Sometimes you might get lucky and find it within a few minutes, but other times it might take hours or days. Sometimes finding the bug is the easy part, but fixing it is hard part.</p>
+<p>An example program containing a logic error is given below. The intended output was <code>2 + 2 = 4</code>, but instead the program prints <code>2 + 2 = 22</code>. While we haven't formally covered String concatenation (<code>+</code>), this error is caused by an order of operations issue. One fix would be adding parentheses around <code>(2 + 2)</code>.</p>
+<pre><code class="language-java">public class LogicError {
+    public static void main(String[] args) {
+        /*
+         * Expected output: 2 + 2 = 4
+         * Actual   output: 2 + 2 = 22
+         */
+        System.out.println(&quot;2 + 2 = &quot; + 2 + 2);
+    }
+}
+</code></pre>
+<p>Fortunately, not all hope is lost. Someday you will learn how to test your code (automatically). While creating tests does not guarantee that the code is error-free, it can significantly reduce the surface area for problems. In our initial example, maybe you (or a teammate) recognized the edge case of uppercase/lowercase usernames, and added specific testing for it. Testing is an important part of software development, and identifying edge cases is an important part of testing.</p>
+<h2>Understanding Error Messages</h2>
+<p>Seeing a big red error message can be scary, but many times it tells you almost exactly what went wrong. Some of the error information is not very important at this point, but will become more relevant when we have larger programs with multiple classes and methods.</p>
+<h3>Compilation Error Messages</h3>
+<p>When you have a compilation error, it tells you a lot of information such as the line number and column number. In the example where we try to run <code>System.out.printline(&quot;hello world&quot;);</code>, we receive this compilation error message:</p>
+<pre><code>C:\Code\sandbox\src\Main.java:6:19
+java: cannot find symbol
+  symbol:   method printline(java.lang.String)
+  location: variable out of type java.io.PrintStream
+</code></pre>
+<p>From this error message we can see</p>
+<ul>
+<li>File name <code>Main.java</code></li>
+<li>In directory <code>C:\Code\sandbox\src\</code></li>
+<li><code>:6:19</code> - Line <code>6</code>, Column <code>19</code></li>
+<li>Cannot find symbol method <code>printline()</code></li>
+<li>variable type <code>java.io.PrintStream</code></li>
+</ul>
+<p>As our earlier example showed, <code>printline()</code> is not a method (specifically within type <code>java.io.PrintStream</code>, but we will ignore this for now), it should have been <code>println()</code>. IntelliJ should also jump to the file that caused the compilation error and put your caret (cursor) at the error position.</p>
+<h3>Runtime Error Messages</h3>
+<p>Runtime error messages are an exception stack trace. This allows you to see where the unhandled error was thrown, and what methods led to it. For now, that will usually just be the <code>main</code> method. Later we will have multiple methods in the stack trace.</p>
+<p>Using the example code <code>System.out.println(1 / 0);</code>, we can see this error message:</p>
+<pre><code>Exception in thread &quot;main&quot; java.lang.ArithmeticException: / by zero
+  at Main.main(Main.java:6)
+</code></pre>
+<p>Which explains:</p>
+<ul>
+<li>Happened on the <code>main</code> thread (will be this way for a long time)</li>
+<li>Exception <code>java.lang.ArithmeticException</code></li>
+<li>Message: <code>/ by zero</code></li>
+<li>At class <code>Main</code>, method <code>main</code>, corresponding to file <code>Main.java</code> line 6</li>
+</ul>
+<p>Right now, we really only care about the message <code>/ by zero</code> and the position <code>Main.main(Main.java:6)</code>. In IntelliJ, we can click the <code>Main.java:6</code> to jump to line 6 of Main.java, where we find the printing of <code>1 / 0</code>.</p>
+<h2>Debugging</h2>
+<p><strong>Debugging</strong> is a process that allows you to step through the source code and view the state of the program changing at the same time. IDEs like IntelliJ and Eclipse support debugging out of the box. Editors like VSCode do not provide as rich of an experience and also need to rely on plugins/extensions.</p>
+<h3>Debug Mode (IntelliJ)</h3>
+<p>In IntelliJ, debugging can be launched by clicking the bug icon next to the top-right play button. Alternatively, debug mode can be launched by clicking the play button in the gutter and selecting <strong>Debug 'FILENAME.main()'</strong>. The following image illustrates their locations. Follow step <code>A</code> to directly launch a debug configuration (Note in the example, <strong>Current File</strong> is selected. You may need to change this). Steps 1 and 2 show an alternative route, which may need to be used once before the configuration in Step-A updates.</p>
+<div class="d-flex img-wrapper"><img src="/java-intro/basic-syntax/img/launch_debug.png" alt="IntelliJ Launching Debug Mode" /></div>
+<p>When you run the following code in debug mode, other than some extra output such as:</p>
+<pre><code>Connected to the target VM, address: '127.0.0.1:60561', transport: 'socket'
+Hello world
+Disconnected from the target VM, address: '127.0.0.1:60561', transport: 'socket'
+</code></pre>
+<p>This is IntelliJ connecting/disconnecting from the local (127.0.0.1) debugger. These lines can be ignored, and only show up in debug mode. You might be wondering what the point of this is, since nothing else seems different. The debugger doesn't change the execution of the program, but it can pause it. We just haven't told it where to pause.</p>
+<h4>Breakpoints</h4>
+<p>In order to tell the debugger to pause, we need to set a <strong>breakpoint</strong>. To do this in IntelliJ (and most editors), click in the left gutter of the source code on the line you want to pause at (or on the line number). You can add as many breakpoints as you want. Click the gutter again to remove a breakpoint.</p>
+<div class="d-flex img-wrapper"><img src="/java-intro/basic-syntax/img/place_breakpoint.png" alt="Placing a Breakpoint" /></div>
+<p>Then the code where the breakpoint is set will appear highlighted (your editor colors may vary):</p>
+<div class="d-flex img-wrapper"><img src="/java-intro/basic-syntax/img/view_breakpoint.png" alt="Viewing a Breakpoint" /></div>
+<p>Now when you click <strong>Debug</strong>, you should see something like this:</p>
+<p><img src="/java-intro/basic-syntax/img/debug_view.png" alt="Debug View - Variables" />
+or</p>
+<div class="d-flex img-wrapper"><img src="/java-intro/basic-syntax/img/debug_view_console.png" alt="Debug View - Console" /></div>
+<p>If you don't see either of those, you can restore the default layout by clicking these buttons:</p>
+<div class="d-flex img-wrapper"><img src="/java-intro/basic-syntax/img/reset_view.png" alt="Reset Debugger View" /></div>
+<p>In this view, we can see the <strong>Threads &amp; Variables</strong> and <strong>Console</strong> tabs. There are also a lot of control buttons:</p>
+<div class="d-flex img-wrapper"><img src="/java-intro/basic-syntax/img/debug_buttons.png" alt="Debug View - Variables" /></div>
+<ol>
+<li><strong>Rerun</strong>: Stop and Restart the program</li>
+<li><strong>Stop</strong>: Stop the program</li>
+<li><strong>Resume</strong>: Resume execution</li>
+<li><strong>Pause</strong>: Pause the program wherever it is, regardless of breakpoints.</li>
+<li><strong>Step over</strong>: Execute the current line of code.</li>
+<li><strong>Step into</strong>: Step into a method's code.</li>
+<li><strong>Step out</strong>: Resume execution and pause at the caller's next line.</li>
+<li><strong>View Breakpoints</strong>: Edit current breakpoint settings</li>
+<li><strong>Mute Breakpoints</strong>: Ignore/disable all breakpoints</li>
+</ol>
+<p>Buttons <code>6</code> and <code>7</code> are useful for debugging methods, which we haven't learned how to write yet.</p>
+<p>Using the breakpoint we set on our <code>println</code>, click button <code>5</code> (step over). This will execute the line, printing <code>Hello world</code> to console. But we are still paused since we are now at the end of <code>main</code>. Stepping-over once more will finish executing the example program.</p>
+<h4>Practice Exercise</h4>
+<p>Consider our example program from the whitespace section:</p>
+<pre><code class="language-java">public static void main(String[] args) {
+    System.out.println(&quot;Hello World&quot;); // Space
+    System.out.println(&quot;Hello\tWorld&quot;); // Tab
+    System.out.println(&quot;Hello\nWorld&quot;); // Newline
+    System.out.println(&quot;Hello\rWorld&quot;); // Carriage Return
+    System.out.println(&quot;Hello\r\nWorld&quot;); // CRLF (carriage-return line-feed)
+}
+</code></pre>
+<p>Rather than commenting off different lines, insert a breakpoint on the first print, and step-over each line to see what it prints. Your debug breakpoint should look like this (you only need one):</p>
+<div class="d-flex img-wrapper"><img src="/java-intro/basic-syntax/img/practice_breakpoint.png" alt="Debug Practice Setup" /></div>
+<p>As you step over each line, view the output associated with that statement.</p>
+<p>As another good exercise, step through this code and watch the output:</p>
+<pre><code class="language-java">public static void main(String[] args) {
+    System.out.print(&quot;Hello&quot;);
+    System.out.print(&quot;\r&quot;);
+    System.out.print(&quot;World&quot;);
+}
+</code></pre>
+
+</main>
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"
+></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/static/functions.js"></script>
+
+</body>
+</html>

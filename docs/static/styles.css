@@ -1,6 +1,8 @@
 :root {
-    --madi-gray: #666;
-    --madi-pink: #FFD7E0;
+    --madi-pink: #ffbad1;
+    --madi-gray: #9aa;
+    --madi-hot-pink: #f0a;
+    --madi-pastel-purple: #e6c5ff;
     --pre-keyword: #B500B2;
     --pre-method: #4078F3;
     --pre-class: #7D00FF;
@@ -10,7 +12,12 @@
     --pre-literal: #EF6B8F;
     --pre-error: red;
 }
-/* 
+
+code {
+    color: var(--madi-hot-pink);
+}
+
+/*
 .hljs-link {
     text-decoration: underline
 } */
@@ -93,8 +100,9 @@ pre.bordered {
         & .other-link a {
             color: #222;
             &:hover {
-                background-color: white;
+                background-color: rgba(255, 255, 255, 0.3);
             }
+            transition: background-color 0.1s;
             border: 2px solid white;
             border-radius: 10px;
             padding: 5px 10px;
@@ -251,3 +259,108 @@ main.quiz h2:not(:first-of-type) {
     }
 }
 
+div.img-wrapper.size-std > img {
+    max-width: min(30rem, 90%);
+}
+
+
+div.img-wrapper.size-1 > img {max-width: min(1rem, 100%)}
+div.img-wrapper.size-2 > img {max-width: min(2rem, 100%)}
+div.img-wrapper.size-3 > img {max-width: min(3rem, 100%)}
+div.img-wrapper.size-4 > img {max-width: min(4rem, 100%)}
+div.img-wrapper.size-5 > img {max-width: min(5rem, 100%)}
+div.img-wrapper.size-6 > img {max-width: min(6rem, 100%)}
+div.img-wrapper.size-7 > img {max-width: min(7rem, 100%)}
+div.img-wrapper.size-8 > img {max-width: min(8rem, 100%)}
+div.img-wrapper.size-9 > img {max-width: min(9rem, 100%)}
+div.img-wrapper.size-10 > img {max-width: min(10rem, 100%)}
+div.img-wrapper.size-11 > img {max-width: min(11rem, 100%)}
+div.img-wrapper.size-12 > img {max-width: min(12rem, 100%)}
+div.img-wrapper.size-13 > img {max-width: min(13rem, 100%)}
+div.img-wrapper.size-14 > img {max-width: min(14rem, 100%)}
+div.img-wrapper.size-15 > img {max-width: min(15rem, 100%)}
+div.img-wrapper.size-16 > img {max-width: min(16rem, 100%)}
+div.img-wrapper.size-17 > img {max-width: min(17rem, 100%)}
+div.img-wrapper.size-18 > img {max-width: min(18rem, 100%)}
+div.img-wrapper.size-19 > img {max-width: min(19rem, 100%)}
+div.img-wrapper.size-20 > img {max-width: min(20rem, 100%)}
+div.img-wrapper.size-21 > img {max-width: min(21rem, 100%)}
+div.img-wrapper.size-22 > img {max-width: min(22rem, 100%)}
+div.img-wrapper.size-23 > img {max-width: min(23rem, 100%)}
+div.img-wrapper.size-24 > img {max-width: min(24rem, 100%)}
+div.img-wrapper.size-25 > img {max-width: min(25rem, 100%)}
+div.img-wrapper.size-26 > img {max-width: min(26rem, 100%)}
+div.img-wrapper.size-27 > img {max-width: min(27rem, 100%)}
+div.img-wrapper.size-28 > img {max-width: min(28rem, 100%)}
+div.img-wrapper.size-29 > img {max-width: min(29rem, 100%)}
+div.img-wrapper.size-30 > img {max-width: min(30rem, 100%)}
+div.img-wrapper.size-31 > img {max-width: min(31rem, 100%)}
+div.img-wrapper.size-32 > img {max-width: min(32rem, 100%)}
+div.img-wrapper.size-33 > img {max-width: min(33rem, 100%)}
+div.img-wrapper.size-34 > img {max-width: min(34rem, 100%)}
+div.img-wrapper.size-35 > img {max-width: min(35rem, 100%)}
+div.img-wrapper.size-36 > img {max-width: min(36rem, 100%)}
+div.img-wrapper.size-37 > img {max-width: min(37rem, 100%)}
+div.img-wrapper.size-38 > img {max-width: min(38rem, 100%)}
+div.img-wrapper.size-39 > img {max-width: min(39rem, 100%)}
+div.img-wrapper.size-40 > img {max-width: min(40rem, 100%)}
+div.img-wrapper.size-41 > img {max-width: min(41rem, 100%)}
+div.img-wrapper.size-42 > img {max-width: min(42rem, 100%)}
+div.img-wrapper.size-43 > img {max-width: min(43rem, 100%)}
+div.img-wrapper.size-44 > img {max-width: min(44rem, 100%)}
+div.img-wrapper.size-45 > img {max-width: min(45rem, 100%)}
+div.img-wrapper.size-46 > img {max-width: min(46rem, 100%)}
+div.img-wrapper.size-47 > img {max-width: min(47rem, 100%)}
+div.img-wrapper.size-48 > img {max-width: min(48rem, 100%)}
+div.img-wrapper.size-49 > img {max-width: min(49rem, 100%)}
+div.img-wrapper.size-50 > img {max-width: min(50rem, 100%)}
+div.img-wrapper.size-51 > img {max-width: min(51rem, 100%)}
+div.img-wrapper.size-52 > img {max-width: min(52rem, 100%)}
+div.img-wrapper.size-53 > img {max-width: min(53rem, 100%)}
+div.img-wrapper.size-54 > img {max-width: min(54rem, 100%)}
+div.img-wrapper.size-55 > img {max-width: min(55rem, 100%)}
+div.img-wrapper.size-56 > img {max-width: min(56rem, 100%)}
+div.img-wrapper.size-57 > img {max-width: min(57rem, 100%)}
+div.img-wrapper.size-58 > img {max-width: min(58rem, 100%)}
+div.img-wrapper.size-59 > img {max-width: min(59rem, 100%)}
+div.img-wrapper.size-60 > img {max-width: min(60rem, 100%)}
+div.img-wrapper.size-61 > img {max-width: min(61rem, 100%)}
+div.img-wrapper.size-62 > img {max-width: min(62rem, 100%)}
+div.img-wrapper.size-63 > img {max-width: min(63rem, 100%)}
+div.img-wrapper.size-64 > img {max-width: min(64rem, 100%)}
+div.img-wrapper.size-65 > img {max-width: min(65rem, 100%)}
+div.img-wrapper.size-66 > img {max-width: min(66rem, 100%)}
+div.img-wrapper.size-67 > img {max-width: min(67rem, 100%)}
+div.img-wrapper.size-68 > img {max-width: min(68rem, 100%)}
+div.img-wrapper.size-69 > img {max-width: min(69rem, 100%)}
+div.img-wrapper.size-70 > img {max-width: min(70rem, 100%)}
+div.img-wrapper.size-71 > img {max-width: min(71rem, 100%)}
+div.img-wrapper.size-72 > img {max-width: min(72rem, 100%)}
+div.img-wrapper.size-73 > img {max-width: min(73rem, 100%)}
+div.img-wrapper.size-74 > img {max-width: min(74rem, 100%)}
+div.img-wrapper.size-75 > img {max-width: min(75rem, 100%)}
+div.img-wrapper.size-76 > img {max-width: min(76rem, 100%)}
+div.img-wrapper.size-77 > img {max-width: min(77rem, 100%)}
+div.img-wrapper.size-78 > img {max-width: min(78rem, 100%)}
+div.img-wrapper.size-79 > img {max-width: min(79rem, 100%)}
+div.img-wrapper.size-80 > img {max-width: min(80rem, 100%)}
+div.img-wrapper.size-81 > img {max-width: min(81rem, 100%)}
+div.img-wrapper.size-82 > img {max-width: min(82rem, 100%)}
+div.img-wrapper.size-83 > img {max-width: min(83rem, 100%)}
+div.img-wrapper.size-84 > img {max-width: min(84rem, 100%)}
+div.img-wrapper.size-85 > img {max-width: min(85rem, 100%)}
+div.img-wrapper.size-86 > img {max-width: min(86rem, 100%)}
+div.img-wrapper.size-87 > img {max-width: min(87rem, 100%)}
+div.img-wrapper.size-88 > img {max-width: min(88rem, 100%)}
+div.img-wrapper.size-89 > img {max-width: min(89rem, 100%)}
+div.img-wrapper.size-90 > img {max-width: min(90rem, 100%)}
+div.img-wrapper.size-91 > img {max-width: min(91rem, 100%)}
+div.img-wrapper.size-92 > img {max-width: min(92rem, 100%)}
+div.img-wrapper.size-93 > img {max-width: min(93rem, 100%)}
+div.img-wrapper.size-94 > img {max-width: min(94rem, 100%)}
+div.img-wrapper.size-95 > img {max-width: min(95rem, 100%)}
+div.img-wrapper.size-96 > img {max-width: min(96rem, 100%)}
+div.img-wrapper.size-97 > img {max-width: min(97rem, 100%)}
+div.img-wrapper.size-98 > img {max-width: min(98rem, 100%)}
+div.img-wrapper.size-99 > img {max-width: min(99rem, 100%)}
+div.img-wrapper.size-100 > img {max-width: min(100rem, 100%)}

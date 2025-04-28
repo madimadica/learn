@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Section 2.4: Whitespace</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+
+<body>
+<header>
+  <nav id="madimadica-navbar">
+    <div class="container-fluid splitter">
+      <a class="home-link" href="/">
+        <img src="/static/brand.png" alt="main-icon" />
+      </a>
+      <div class="other-links-wide">
+        <div class="other-link">
+          <a href="/java-intro/">Introduction to Java</a>
+        </div>
+        <div class="other-link">
+          <a href="/advanced-java/">Advanced Java</a>
+        </div>
+      </div>
+      <div id="other-links-narrow">
+        All eBooks
+        <i id="other-links-down" class="bi bi-chevron-down"></i>
+        <i id="other-links-up" class="bi bi-chevron-up"></i>
+        <ul>
+          <li><a href="/java-intro/">Introduction to Java</a></li>
+          <li><a href="/advanced-java/">Advanced Java</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<nav id="bottom-page-nav"><a
+  aria-keyshortcuts="Left"
+  aria-label="Previous page"
+  class="prev-link"
+  href="/java-intro/basic-syntax/comments.html"
+  rel="prev"
+  title="2.3 Comments"
+>
+  <i class="bi bi-chevron-left"></i>
+</a>
+<a
+  aria-keyshortcuts="Right"
+  aria-label="Next page"
+  class="next-link"
+  href="/java-intro/basic-syntax/case-sensitivity.html"
+  rel="next"
+  title="2.5 Case Sensitivity"
+>
+  <i class="bi bi-chevron-right"></i>
+</a>
+</nav>
+<main class="container">
+<h1>2.4 Whitespace</h1>
+<p><strong>Whitespace characters</strong> are special characters used to represent vertical and horizontal spacing. The most common types are <em>spaces</em>, <em>tabs</em>, and <em>newlines</em>. There are other whitespace types that are rarely used, such as form-feeds, zero-width spaces or vertical tabs - but we will ignore these.</p>
+<p>Whitespace characters are special characters used to represent vertical and horizontal spacing. The most common types are spaces, tabs, and newlines. There are other whitespace types that are rarely used, such as form-feeds, zero-width spaces or vertical tabs - but we will ignore these.</p>
+<h2>Common Whitespace Types</h2>
+<h3>Spaces</h3>
+<p>A <strong>space</strong> is the most common type of whitespace. It is a single width horizontal character, created with the spacebar. An interesting note is that spaces have an ASCII value <code>32</code>, or a hexadecimal value of <code>0x20</code>. (This is why some web URLs have <code>%20</code>, to encode a space.)</p>
+<h3>Tabs</h3>
+<p>A <strong>tab</strong> is the other main type of horizontal whitespace, created with the TAB key. The tab-width depends on the application rendering it. A typical tab-width is 4 spaces, so pressing TAB will go to the <em>next</em> multiple of 4. If you are at position 3, tab moves to 4. A tab at position 4 moves to position 8. Some less common tab-widths are 2, 3, and 8.</p>
+<h3>Newlines</h3>
+<p><strong>Newlines</strong>, also referred to as a <em>line feed</em>, create a single line of vertical whitespace. Breaking the text at the current line, and continuing at the start of the next. You can create newlines with the ENTER key.</p>
+<h3>Carriage Returns</h3>
+<p>A <strong>carriage return</strong> is a special control character to move the cursor to the <em>beginning</em> of a line. Anything typed <em>after</em> it will replace all the text on the current-line, unless it is a newline character. While it is technically considered whitespace, it does not have any visual representation. Carriage returns are usually used in combination with line-feeds on Windows systems.</p>
+<p>A practical usage of carriage returns would be in a command-line application to display the current progress of a task, such as a download, and update the progress in real-time (such as <code>Downloading... 5.6MB / 123.4MB</code>).</p>
+<h2>Java Escape Sequences</h2>
+<p>You can use whitespaces inside Java Strings. Some whitespaces must be escaped using special <em>escape sequences</em> that begin with a backslash. Others can be directly typed in.</p>
+<ul>
+<li>A <em>space</em> is typed using the spacebar (or <code>\s</code>).</li>
+<li>A <em>tab</em> is typed with the TAB key, or using the <code>\t</code> escape sequence.</li>
+<li>A <em>newline</em> can only be created with the <code>\n</code> escape sequence for Strings. In @chapter3, we will learn about <em>text blocks</em> to directly type in newlines without <code>\n</code>.</li>
+<li>A <em>carriage return</em> can only be created with the <code>\r</code> escape sequence.</li>
+</ul>
+<p>Here are some examples of using each common type of whitespace:</p>
+<pre><code class="language-java">public static void main(String[] args) {
+    System.out.println(&quot;Hello World&quot;); // Space
+    System.out.println(&quot;Hello\tWorld&quot;); // Tab
+    System.out.println(&quot;Hello\nWorld&quot;); // Newline
+    System.out.println(&quot;Hello\rWorld&quot;); // Carriage Return
+    System.out.println(&quot;Hello\r\nWorld&quot;); // CRLF (carriage-return line-feed)
+}
+</code></pre>
+<p>Try running the previous code, commenting off all but one line at a time to see the different outputs. When you run the carriage return line, you should only see <code>World</code> in the output. As we just learned, carriage returns move the cursor to the <em>beginning</em> of the line, and replaces the contents (unless the next character is <code>\n</code>). We will rarely use this fact, but it is nice to be aware of it.</p>
+<h2>Line Endings - Windows vs. UNIX</h2>
+<p>Line endings are used to create a single line of whitespace, but they are not always a simple <code>\n</code>. On UNIX systems, newlines <em>are</em> just a single <code>\n</code>. But, Windows systems use <code>\r\n</code> instead. This is sometimes abbreviated as <code>CRLF</code> (carriage-return new-line). Sometimes these difference can cause issues when using files across different operating systems, but versioning tools like <code>git</code> can automatically convert between them.</p>
+<p>Java provides a way to get the correct line ending for the current system with <code>System.lineSeparator()</code>. This returns <code>\r\n</code> for Windows, and <code>\n</code> for UNIX systems. Some methods, such as <code>System.out.println()</code>, will automatically use the correct line separator. Most console apps should work fine with <code>\n</code> (even on Windows), but processing text files can cause problems.</p>
+<h2>Comparing <code>print</code> and <code>println</code></h2>
+<p>Java provides a few methods to print to the standard output. So far, we have only used <code>System.out.println()</code>. Now that we know about whitespaces, we will introduce <code>System.out.print()</code>. This acts the same way as <code>System.out.println()</code>, except it <em>does not</em> add a line ending to the output. Recall that <code>println</code> stands for <em>print line</em>, so <code>print</code> simply stands for <em>print</em>. Let's see some examples.</p>
+<pre><code class="language-java">// Print &quot;hello&quot; and &quot;world&quot; with a line ending between
+System.out.println(&quot;hello&quot;);
+System.out.println(&quot;world&quot;);
+
+// Use multiple 'print' methods to effectively print &quot;hello world&quot;
+System.out.print(&quot;he&quot;);
+System.out.print(&quot;llo&quot;);
+System.out.print(&quot; world&quot;);
+
+// Use combinations of both
+System.out.print(&quot;hello &quot;);
+System.out.println(&quot;world&quot;);
+System.out.println(&quot;Exiting...&quot;);
+</code></pre>
+<p>Most of the time, <code>println()</code> is what we want. But, sometimes we will use <code>print()</code> to keep the cursor on the same line, such as prompting a user for input (starting in @chapter5).</p>
+<h2>Whitespace Significance</h2>
+<p>Generally speaking, whitespace does not matter in Java, but there are some places that do. Some places require <em>at least</em> one whitespace (vertical or horizontal). This is usually between <em>tokens</em>. A rediculous example <em>hello world</em> program could be</p>
+<pre><code class="language-java">// This works... DONT do this.
+ public     class
+   HorribleExample                   {
+      public        static
+void     main    (    String  []    args
+  )
+ {         System  .
+      out    . println  (   &quot;hello world&quot;
+      )
+   ;
+      }             }
+</code></pre>
+<p>but this is ugly and very difficult to read. So we will use a standard format like we have already been doing.</p>
+<p>Something we <em>can't</em> do is <code>publicstaticvoidmain</code>. It is not obvious where one token starts and the next begins, so the Java compiler fails to parse this properly. (Here, we actually wanted 4 tokens: <code>public</code>, <code>static</code>, <code>void</code>, <code>main</code>, but instead we only got one token for <code>publicstaticvoidmain</code>.)</p>
+<p>One area that whitespace can cause problems is with Strings. Whitespace does matter for Strings, as that is part of the String. &quot;hello world&quot; is different from &quot;helloworld&quot;. And as we mentioned with escape sequences, you have to escape newlines in Strings. This means that the following example will not work:</p>
+<p>One area that whitespace can cause problems is with Strings. Whitespace <em>does</em> matter for Strings, as that is part of the String. <code>&quot;hello world&quot;</code> is different from <code>&quot;helloworld&quot;</code>. And as we mentioned with escape sequences, you have to escape newlines in Strings. This means that the following example will <strong>not</strong> work:</p>
+<pre><code class="language-java">System.out.println(&quot; 
+    1. one
+    2. two
+    3. three
+&quot;);
+</code></pre>
+<p>This is because String literals must begin and end on the same line. Instead, we can use the newline escape sequences with <code>System.out.println(&quot;1. one\n2. two\n3. three&quot;)</code>;, or wait until we learn how to use text blocks.</p>
+<p>Whitespace can also matter for comments. Consider this snippet:</p>
+<pre><code class="language-java">// This is part of the comment
+but this it not
+System.out.println(&quot;hello world&quot;);
+</code></pre>
+<p>Since a single-line comment only affects one line, the <code>but this is not</code> is expected to be code. Since it is not valid code, this snippet would not compile.</p>
+<h2>Tabs vs. Spaces</h2>
+<p>While we are on the topic of whitespace, I will quickly bring up a historical debate. Should you use tabs or spaces (for indenting your code)? This is left as an exercise for the reader. This is mostly an inside joke for programmers, though some people take the debate seriously. Most IDEs can be configured to use spaces/tabs interchangeably, replacing the opposite type based on tab-width.</p>
+
+</main>
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"
+></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/static/functions.js"></script>
+
+</body>
+</html>
